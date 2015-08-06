@@ -69,6 +69,9 @@ gulp.task('imagemin', function() {
 gulp.task('copy', function(){
   gulp.src('src/scripts/*.js')
     .pipe(gulp.dest('./public/js'));
+  
+  gulp.src('src/scripts/md/*.js')
+    .pipe(gulp.dest('./public/js/md'));
 });
 
 gulp.task('jshint', function() {
