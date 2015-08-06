@@ -1,6 +1,6 @@
-function loadField(){
+function loadField(name, element){
 
-	fieldsLoader(function(err, fields){
+	fieldsLoader(name, function(err, fields){
 		console.log(err || 'all fields loaded');
 		if(err) return;
 
@@ -11,10 +11,10 @@ function loadField(){
 				timePassing: true
 			};
 
-		var winAspect = window.innerWidth / window.innerHeight,
+		var winAspect = element.innerWidth / element.innerHeight,
 			fieldAspect = importedGridOptions.width / importedGridOptions.height,
 			wider = fieldAspect > winAspect,
-			scale = wider ? window.innerWidth / importedGridOptions.width : window.innerHeight / importedGridOptions.height;
+			scale = wider ? element.innerWidth / importedGridOptions.width : element.innerHeight / importedGridOptions.height;
 
 		var motionDisplay = new MotionDisplay({
 			debugField: false,
@@ -23,9 +23,9 @@ function loadField(){
 			height: Math.floor(importedGridOptions.height * scale),
 			clipPath: clipPath
 		});
-		window.md = motionDisplay;
 		
-		document.body.appendChild(motionDisplay.canvas);
+		element.appendChild(motionDisplay.container);
+		element.appendChild(motionDisplay.canvas);
 
 		motionDisplay.canvas.style.width = Math.floor(importedGridOptions.width * scale) + 'px';
 		motionDisplay.canvas.style.height = Math.floor(importedGridOptions.height * scale) + 'px';
