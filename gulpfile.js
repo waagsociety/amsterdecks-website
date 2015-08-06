@@ -83,7 +83,7 @@ gulp.task('jshint', function() {
 gulp.task('watch', function () {
    gulp.watch('src/stylus/**/*.styl', ['css']);
    gulp.watch('src/jade/*.jade', ['html']);
-   gulp.watch('src/scripts/*.js', ['html', 'scripts']);
+   gulp.watch('src/scripts/*.js', ['html', 'scripts', 'copy']);
 });
 
 gulp.task('browser-sync', function() {
