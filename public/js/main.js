@@ -66,14 +66,18 @@ function initMotionDisplays(){
     $elem.empty();
   }
 
-  $('#splashflow').viewportChecker({repeat: true, callbackFunction: function($elem, action){
-    if(action === 'add'){
-      loadMotionDisplay('gr-amsterdam', $elem[0]);
-    } else {
-      removeMotionDisplay($elem);
-    }
-  }})
-  $('#waterkwaliteit').viewportChecker({repeat: true, callbackFunction: function(elem, action){ console.log('waterkwaliteit: ' + action); }})
+  function assignFieldTrigger(selector, fieldName){
+    $(selector).viewportChecker({repeat: true, callbackFunction: function($elem, action){
+      if(action === 'add'){
+        loadMotionDisplay(fieldName, $elem[0]);
+      } else {
+        removeMotionDisplay($elem);
+      }
+    }})
+  }
+
+  assignFieldTrigger('#splashflow', 'gr-amsterdam');
+  
 }
 
 $(document).ready(initMotionDisplays);
