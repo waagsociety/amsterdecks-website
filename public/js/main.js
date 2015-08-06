@@ -49,3 +49,24 @@ function navigation(){
 }
 
 navigation();
+
+var activeMotionDisplayName;
+
+function loadMotionDisplay(name, elem){
+  if(activeMotionDisplayName === name) return; //because this function gets triggered a lot :(
+  activeMotionDisplayName = name;
+  loadField(name, elem);
+}
+
+function removeMotionDisplay(){
+  activeMotionDisplayName = null;
+}
+
+$('#home').viewportChecker({repeat: true, callbackFunction: function(elem, action){
+  if(action === 'add'){
+    loadMotionDisplay('centercenter', elem[0]);
+  } else {
+    removeMotionDisplay();
+  }
+}})
+$('#waterkwaliteit').viewportChecker({repeat: true, callbackFunction: function(elem, action){ console.log('waterkwaliteit: ' + action); }})

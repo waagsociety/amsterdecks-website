@@ -1,64 +1,84 @@
-function fieldsLoader(cb){
-	var fields = {},
-    	canvas = document.createElement('canvas'),
-    	width = canvas.width = fieldInfo.x,
-    	height = canvas.height = fieldInfo.y,
-    	ctx = canvas.getContext('2d'),
-    	fieldFilenames = Object.keys(fieldInfo.meta),
-    	total = fieldFilenames.length,
-    	done = 0;
+function fieldsLoader(name, cb){
+	var fieldRootPath = '/public/fields/' + name + '/',
+		metaScript = document.createElement('script'),
+		clipScript = document.createElement('script'),
+		contaminatorsScript = document.createElement('script');
 
-  Object.defineProperty(fields, 'meta', { value: fieldInfo.meta });
+	metaScript.src = fieldRootPath + 'meta.js';
+	metaScript.addEventListener('load', proceed);
 
-	fieldFilenames.forEach(function(filename){
-		var filenameSplit = filename.split('-'),
-  			variant = filenameSplit[0],
-  			T = +filenameSplit[1],
-  			img = new Image(),
-        nullValue = (variant === 'avg' && T === 0) ? NaN : 0; // this is for creating spawnArray from first field
+	clipScript.src = fieldRootPath + 'clip.js';
+	contaminatorsScript.src = fieldRootPath + 'contaminators.js';
+	
+	document.body.appendChild(metaScript);
+	document.body.appendChild(clipScript);
+	document.body.appendChild(contaminatorsScript);
 
-		fields[variant] = fields[variant] || [];
+	return;
 
-		img.src = '/views/' + fieldInfo.diskName + '/' + filename + '.png';
+	function proceed(){
 
-	    img.onerror = function(err){
-	      cb(new Error('image failed to load: ' + '/views/' + fieldInfo.diskName + '/' + filename + '.png'));
-	      cb = function(){};
-	    }
+		var fields = {},
+	    	canvas = document.createElement('canvas'),
+	    	width = canvas.width = fieldInfo.x,
+	    	height = canvas.height = fieldInfo.y,
+	    	ctx = canvas.getContext('2d'),
+	    	fieldFilenames = Object.keys(fieldInfo.meta),
+	    	total = fieldFilenames.length,
+	    	done = 0;
 
-		img.onload = setTimeout.bind(window, function(){
-		 	var max = fields.meta[filename],
-  		 		fitBack = fitFactory(1, 255, -max, max),
-  		 		field = new Float32Array(width * height * 2);
+	  	Object.defineProperty(fields, 'meta', { value: fieldInfo.meta });
 
-		 	ctx.drawImage(img, 0, 0, width, height);
+		fieldFilenames.forEach(function(filename){
+			var filenameSplit = filename.split('-'),
+	  			variant = filenameSplit[0],
+	  			T = +filenameSplit[1],
+	  			img = new Image(),
+	        nullValue = (variant === 'avg' && T === 0) ? NaN : 0; // this is for creating spawnArray from first field
 
-		 	var imageData = ctx.getImageData(0, 0, width, height),
-  		 		buffer = imageData.data,
-  		 		length = buffer.length,
-  		 		i = 0, r, g;
+			fields[variant] = fields[variant] || [];
 
-		 	while(i < length){
-		 		if(buffer[i]){
-		 			r = fitBack(buffer[i]);
-		 			g = fitBack(buffer[i + 1]);
+			img.src = '/public/fields/' + fieldInfo.diskName + '/' + filename + '.png';
 
-		 			field[i / 2] = safeDeLog(r) - getSign(r); // remove one because log/delogging creates artifacts below 1
-		 			field[i / 2 + 1] = safeDeLog(g) - getSign(g); // and one has been added before to prevent this
-		 		}
+		    img.onerror = function(err){
+		      cb(new Error('image failed to load: ' + '/public/fields/' + fieldInfo.diskName + '/' + filename + '.png'));
+		      cb = function(){};
+		    }
 
-		 		else{
-		 			field[i / 2] = nullValue;
-		 			field[i / 2 + 1] = nullValue;
-		 		}
+			img.onload = setTimeout.bind(window, function(){
+			 	var max = fields.meta[filename],
+	  		 		fitBack = fitFactory(1, 255, -max, max),
+	  		 		field = new Float32Array(width * height * 2);
 
-		 		i += 4;
-		 	}
+			 	ctx.drawImage(img, 0, 0, width, height);
 
-		 	fields[variant][T] = field;
+			 	var imageData = ctx.getImageData(0, 0, width, height),
+	  		 		buffer = imageData.data,
+	  		 		length = buffer.length,
+	  		 		i = 0, r, g;
 
-		 	done++;
-		 	if(done === total) cb(null, fields);
+			 	while(i < length){
+			 		if(buffer[i]){
+			 			r = fitBack(buffer[i]);
+			 			g = fitBack(buffer[i + 1]);
+
+			 			field[i / 2] = safeDeLog(r) - getSign(r); // remove one because log/delogging creates artifacts below 1
+			 			field[i / 2 + 1] = safeDeLog(g) - getSign(g); // and one has been added before to prevent this
+			 		}
+
+			 		else{
+			 			field[i / 2] = nullValue;
+			 			field[i / 2 + 1] = nullValue;
+			 		}
+
+			 		i += 4;
+			 	}
+
+			 	fields[variant][T] = field;
+
+			 	done++;
+			 	if(done === total) cb(null, fields);
+			});
 		});
-	});
+	}
 }
