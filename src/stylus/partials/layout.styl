@@ -1,0 +1,63 @@
+body, html, main
+  height 100%
+.one-col
+  width 100%
+.two-col
+  width 50%
+.three-col
+  width 33.33%
+.four-col
+  width 25%
+.five-col
+  width 20%
+.loading
+  overflow hidden
+.loader
+  position fixed
+  width 100%
+  height 100%
+  background lightgrey
+  top 0
+  left 0
+  z-index 9999
+  overflow hidden
+  transition all .2s linear
+.page
+  height 100%
+  width 100%
+  background-attachment fixed
+.page-1
+  background-image url(images/water_grachten.jpg)
+  background-size cover
+.page-2
+  background canvas
+.page-3
+  background red
+.logo, .logo-drop
+  max-width 20%
+  position absolute
+  left 50%
+  top 50%
+  transform translate(-50%, -50%)
+  width: 100%
+  z-index 2
+  
+.logo svg, .logo-drop svg
+  fill canvas
+  left 0
+  top 0
+  
+#drop, .thedrop
+  position relative
+  
+.loader
+  #drop
+    animation-name mymove
+    animation-duration 4s
+    animation-iteration-count infinite
+    transition all .2s ease-out
+    
+@keyframes mymove {
+    from {top: 0px;}
+    to {top: 600px;}
+}

@@ -1,0 +1,51 @@
+include ./header.jade
+header.box
+  p This is Martin's boiler plate
+main
+  section
+    h2 some check boxes
+    .cntr
+      .row.press
+        input(type="checkbox" hidden)#unchecked.cbx
+        label(for="unchecked").lbl
+      .row.press
+        input(type="checkbox" hidden checked)#checked.cbx
+        label(for="checked").lbl
+      .row.press
+        input(type="checkbox" hidden disabled)#unchecked_disabled.cbx
+        label(for="unchecked_disabled").lbl
+  section
+    #container
+      .paper
+        #num 1
+          .ripple
+      .paper
+        #num 2
+          .ripple
+      .paper
+        #num 3
+          .ripple
+      .paper
+        #num 4
+          .ripple
+  section.loginForm
+    form
+      .group
+        input(type='text')
+        span.highlight
+        span.bar
+        label Name 
+      .group
+        input(type='email')
+        span.highlight
+        span.bar
+        |     
+        label Email
+      button.button.buttonBlue(type='button')
+        | Subscribe
+        .ripples.buttonRipples
+          span.ripplesCircle
+footer
+  p It makes use of Jade, Stylus, Gulp
+  button This is a button
+  a(href="#").btn.btn-1a This is an href button

@@ -1,0 +1,31 @@
+include ./header.jade
+main
+  .loader
+    .logo
+      include ../images/logo.svg
+    .logo-drop
+      include ../images/drop.svg
+  section#home.page.page-1.left
+    .logo
+      include ../images/logo.svg
+    #droppje.logo-drop.thedrop(data-start="top: 50%;" data-3000-start="top: 350%;")
+      include ../images/drop.svg
+  section#liquidCommons.page.page-2.left.big-padding
+    .three-col.standard-padding
+      h1 Liquid commons
+      p.
+        Anum, essidiu squonferte, Ti. erede quamenatquit L. Nos obus acienat iferiam popublist vidiusa noveritem auctelis stu conscer teritem, cae nontes a L. Rarbis es! Simus, Casteme pubisse invenius cest? Fur horbem, pri tursupio et perfiri- cul unt.
+        Usula iam. Dum auctantilis con te ommoendit.
+        Satam. Ehebati, publiam muro noctum porusa dem publiam quem sente, que acero horu- dac ent acidienicia derobus at. Sertiquem nontife nistifericit voc temporit.
+  section#waterkwaliteit.page.page-3.left.big-padding
+    .two-col.standard-padding
+      h1 waterkwaliteit
+      p.
+        asdas
+  section#stroming.page.page-4.left.big-padding
+script(type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/enquire.js/2.1.2/enquire.min.js")
+script(type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/skrollr/0.6.30/skrollr.min.js")
+script(src="public/js/init.js")
+//- inject:js
+script(src="public/js/main.js")
+//- endinject
