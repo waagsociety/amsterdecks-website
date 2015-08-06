@@ -169,14 +169,16 @@ function MotionDisplay(options){
 		while(i < l){
 			p = particles[i];
 
-			contaminants = grid.getContaminants(p.x, p.y);
-			if(contaminants.length){
-				p.contaminated = true;
-				cJoined = contaminants.join(',');
-				this.contaminatedParticles[cJoined] = this.contaminatedParticles[cJoined] || [];
-				this.contaminatedParticles[cJoined].push(particles.splice(i, 1)[0]);
-				l--;
-				continue;
+			if(window.contaminators.length){
+				contaminants = grid.getContaminants(p.x, p.y);
+				if(contaminants.length){
+					p.contaminated = true;
+					cJoined = contaminants.join(',');
+					this.contaminatedParticles[cJoined] = this.contaminatedParticles[cJoined] || [];
+					this.contaminatedParticles[cJoined].push(particles.splice(i, 1)[0]);
+					l--;
+					continue;
+				}
 			}
 
 

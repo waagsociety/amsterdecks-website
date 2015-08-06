@@ -26,7 +26,7 @@ function loadField(name, element){
 			clipPath: clipPath
 		});
 		
-		element.appendChild(motionDisplay.container);
+		motionDisplay.container && element.appendChild(motionDisplay.container);
 		element.appendChild(motionDisplay.canvas);
 
 		motionDisplay.canvas.style.width = Math.floor(importedGridOptions.width * scale) + 'px';
