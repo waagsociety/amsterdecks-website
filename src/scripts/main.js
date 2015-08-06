@@ -50,23 +50,30 @@ function navigation(){
 
 navigation();
 
-var activeMotionDisplayName;
+function initMotionDisplays(){
+  var activeMotionDisplayName,
+      activeMotionDisplay;
 
-function loadMotionDisplay(name, elem){
-  if(activeMotionDisplayName === name) return; //because this function gets triggered a lot :(
-  activeMotionDisplayName = name;
-  loadField(name, elem);
-}
-
-function removeMotionDisplay(){
-  activeMotionDisplayName = null;
-}
-
-$('#home').viewportChecker({repeat: true, callbackFunction: function(elem, action){
-  if(action === 'add'){
-    loadMotionDisplay('centercenter', elem[0]);
-  } else {
-    removeMotionDisplay();
+  function loadMotionDisplay(name, elem){
+    if(activeMotionDisplayName === name) return; //because this function gets triggered a lot :(
+    activeMotionDisplayName = name;
+    loadField(name, elem);
   }
-}})
-$('#waterkwaliteit').viewportChecker({repeat: true, callbackFunction: function(elem, action){ console.log('waterkwaliteit: ' + action); }})
+
+  function removeMotionDisplay($elem){
+    activeMotionDisplayName = null;
+    window.activeMotionDisplay && window.activeMotionDisplay.stop();
+    $elem.empty();
+  }
+
+  $('#splashflow').viewportChecker({repeat: true, callbackFunction: function($elem, action){
+    if(action === 'add'){
+      loadMotionDisplay('centercenter', $elem[0]);
+    } else {
+      removeMotionDisplay($elem);
+    }
+  }})
+  $('#waterkwaliteit').viewportChecker({repeat: true, callbackFunction: function(elem, action){ console.log('waterkwaliteit: ' + action); }})
+}
+
+$(document).ready(initMotionDisplays);

@@ -11,10 +11,12 @@ function loadField(name, element){
 				timePassing: true
 			};
 
-		var winAspect = element.innerWidth / element.innerHeight,
+		var width = $(element).innerWidth(),
+			height = $(element).innerHeight(),
+			aspect = width / height,
 			fieldAspect = importedGridOptions.width / importedGridOptions.height,
-			wider = fieldAspect > winAspect,
-			scale = wider ? element.innerWidth / importedGridOptions.width : element.innerHeight / importedGridOptions.height;
+			wider = fieldAspect > aspect,
+			scale = !wider ? width / importedGridOptions.width : height / importedGridOptions.height;
 
 		var motionDisplay = new MotionDisplay({
 			debugField: false,
@@ -30,5 +32,6 @@ function loadField(name, element){
 		motionDisplay.canvas.style.width = Math.floor(importedGridOptions.width * scale) + 'px';
 		motionDisplay.canvas.style.height = Math.floor(importedGridOptions.height * scale) + 'px';
 
+		window.activeMotionDisplay = motionDisplay;
 	});
 }
