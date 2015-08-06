@@ -30,7 +30,8 @@ gulp.task('html', function() {
 
 gulp.task('js', function() {
   gulp.src([
-    'bower_components/jquery/dist/jquery.js'
+    'bower_components/jquery/dist/jquery.js',
+    'scripts/jquery.viewportchecker.js'
   ])
     // concat pulls all our files together before minifying them
     .pipe( concat('output.min.js') )
