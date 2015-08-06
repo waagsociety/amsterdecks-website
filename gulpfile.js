@@ -31,6 +31,7 @@ gulp.task('html', function() {
 gulp.task('js', function() {
   gulp.src([
     'bower_components/jquery/dist/jquery.js',
+    'bower_components/bower-skrollr/skrollr.min.js',
     'scripts/jquery.viewportchecker.js'
   ])
     // concat pulls all our files together before minifying them
@@ -41,7 +42,7 @@ gulp.task('js', function() {
 
 
 gulp.task('scripts', function(){ 
-    var target = gulp.src('src/jade/header.jade');
+    var target = gulp.src('src/jade/index.jade');
     var sources = gulp.src(['src/scripts/*.js'], {read: false});
     var exportString = 'public/js';
     return target.pipe(inject(sources, {

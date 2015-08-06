@@ -1,13 +1,3 @@
-var subMenuHeight = document.getElementById('subMenu').offsetHeight;
-var subMenu = document.getElementById('subMenu');
-var mainMenuHeight = document.getElementById('mainMenu').offsetHeight;
-
-subMenu.style.top = mainMenuHeight;
-
-
-
-
-
 var mainMenu = document.getElementById('mainMenu'),
     subMenu = document.getElementById('subMenu');
     mainMenuHeight = mainMenu.offsetHeight;
@@ -35,3 +25,5 @@ function removeLoader(){
 };
 
 setTimeout(removeLoader, 5000);
+
+var s = skrollr.init({forceHeight: false});
