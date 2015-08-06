@@ -1,8 +1,12 @@
-.mainMenu
+#menuContainer
   position fixed
+  z-index 8888
+  width 100%
+  transition transform .5s ease-out
+  
+.mainMenu
   width 100%
   margin 0
-  z-index 8888
   background white
   ul
     width 100%
@@ -18,7 +22,7 @@
       color darkgrey
       padding .2em
 .subMenu
-  position fixed
+  position relative
   background rgba(secondary, .55)
   width 100%
   z-index 8888
