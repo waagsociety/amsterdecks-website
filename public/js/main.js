@@ -68,7 +68,7 @@ function initMotionDisplays(){
 
   $('#splashflow').viewportChecker({repeat: true, callbackFunction: function($elem, action){
     if(action === 'add'){
-      loadMotionDisplay('centercenter', $elem[0]);
+      loadMotionDisplay('gr-amsterdam', $elem[0]);
     } else {
       removeMotionDisplay($elem);
     }

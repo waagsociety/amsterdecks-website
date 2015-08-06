@@ -1,0 +1,1 @@
+var contaminatorSize = 0, contaminators = [];
