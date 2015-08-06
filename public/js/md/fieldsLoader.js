@@ -1,5 +1,5 @@
 function fieldsLoader(name, cb){
-	var fieldRootPath = '/public/fields/' + name + '/',
+	var fieldRootPath = 'public/fields/' + name + '/',
 		metaScript = document.createElement('script'),
 		clipScript = document.createElement('script'),
 		contaminatorsScript = document.createElement('script');
@@ -38,10 +38,10 @@ function fieldsLoader(name, cb){
 
 			fields[variant] = fields[variant] || [];
 
-			img.src = '/public/fields/' + fieldInfo.diskName + '/' + filename + '.png';
+			img.src = 'public/fields/' + fieldInfo.diskName + '/' + filename + '.png';
 
 		    img.onerror = function(err){
-		      cb(new Error('image failed to load: ' + '/public/fields/' + fieldInfo.diskName + '/' + filename + '.png'));
+		      cb(new Error('image failed to load: ' + 'public/fields/' + fieldInfo.diskName + '/' + filename + '.png'));
 		      cb = function(){};
 		    }
 
