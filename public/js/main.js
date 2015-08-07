@@ -22,10 +22,20 @@ setTimeout(removeLoader, 5000);
 
 // var s = skrollr.init({forceHeight: false});
 
+
+function hideNavigation(){
+  document.getElementById('menuContainer').style.transform = "translateY(-100%)"; 
+}
+
+function showNavigation(){
+  document.getElementById('menuContainer').style.transform = "translateY(0%)";
+}
+
 function navigation(){
   var mainMenu = document.getElementById('mainMenu'),
       subMenu = document.getElementById('subMenu'),
-      subMenuHeight = subMenu.offsetHeight,
+      subMenuHeight = 0,
+//      subMenuHeight = subMenu.offsetHeight,
       mainMenuHeight = mainMenu.offsetHeight;
   
   $('body').bind('DOMMouseScroll', function(e){
@@ -41,13 +51,12 @@ function navigation(){
   //IE, Opera, Safari
   $('body').bind('mousewheel', function(e){
      if(e.originalEvent.wheelDelta < 0) {
-        document.getElementById('menuContainer').style.transform = "translateY(-100%)"; 
+        hideNavigation();
      }else {
-        document.getElementById('menuContainer').style.transform = "translateY(0%)";
+        showNavigation();
      }
   });
 }
-
 navigation();
 
 function initMotionDisplays(){
@@ -77,8 +86,19 @@ function initMotionDisplays(){
   }
 
   assignFieldTrigger('#splashflow', 'gr-amsterdam');
+//  assignFieldTrigger('#stromingRijn', 'watermartin');
+//  assignFieldTrigger('#stromingCenter', 'gr-amsterdam');
   
 }
+
+
+jQuery(document).ready(function() {
+    jQuery('.systeemNav').addClass("hidden").viewportChecker({
+        classToAdd: 'visible animated fadeInUp',
+        offset: -50,
+        repeat: true
+       });
+});
 
 function systemView(name){
   var viewContainer = document.getElementById("aerialViewContainer"),
@@ -86,7 +106,7 @@ function systemView(name){
   
   viewContainer.innerHTML = "";
   view.className = "view " + name;
-  viewContainer.appendChild(view); 
+  viewContainer.appendChild(view);  
 }
 
 //var viewNav = document.getElementById('arialNav'),

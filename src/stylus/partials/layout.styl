@@ -8,6 +8,8 @@ body, html, main
   width 33.33%
 .four-col
   width 25%
+.four-col-three
+  width 75%
 .five-col
   width 20%
 .loading
@@ -27,6 +29,13 @@ body, html, main
   width 100%
   background-attachment fixed
   background-size cover
+  background-color canvas
+  overflow hidden
+  svg
+    max-width 100vw
+    max-height 100vw
+    width auto
+    height auto
 .page-1
   .flowmap
     position absolute
@@ -36,7 +45,7 @@ body, html, main
     top 0
     left 0
     z-index 0
-.page-2
+.page-3
   background canvas
 #doorsnede
   background-color lightgrey
@@ -72,19 +81,50 @@ body, html, main
     to {top: 600px;}
 }
 
-.contaminator-container{
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0.1;
-  overflow: hidden;
-}
+.contaminator-container
+  position absolute
+  top 0
+  left 0
+  opacity 0.1
+  overflow hidden
 
-.contaminator{
-  position: absolute;
-}
 
-.contaminator.overloop{
-  background-color: yellow;
-  border-radius: 100%;
-}
+.contaminator
+  position absolute
+
+
+.contaminator.overloop
+  background-color yellow
+  border-radius 100%
+
+.svgContainer
+  padding 0 medium-percentage
+
+
+.full-height
+  height 100%
+
+.doorsnedeContainer
+  background-image url(images/doorsnede.jpg)
+  background-size contain
+  background-repeat no-repeat
+  height 100%
+  width 100%
+  position relative
+.doorsnedeSvgContainer
+  background-image url(images/doorsnede.svg)
+  background-size contain
+  background-repeat no-repeat
+  height 100%
+  width 100%
+  position relative
+  transform translateY(-100%)
+
+#stroming
+  .stromingView
+    width 100%
+    height 100%
+    position absolute
+    left 0
+    top 0
+    overflow hidden
