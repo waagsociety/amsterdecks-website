@@ -80,4 +80,21 @@ function initMotionDisplays(){
   
 }
 
+function systemView(name){
+  var viewContainer = document.getElementById("aerialViewContainer"),
+      view = document.createElement("div");
+  
+  viewContainer.innerHTML = "";
+  view.className = "view " + name;
+  viewContainer.appendChild(view); 
+}
+
+//var viewNav = document.getElementById('arialNav'),
+//    children = viewNav.childNodes;
+//
+//for (var i=0; i < children.length; i++) {
+//    children[i].getAttribute('id');
+//    console.log(children[i]);
+//}
+
 $(document).ready(initMotionDisplays);
