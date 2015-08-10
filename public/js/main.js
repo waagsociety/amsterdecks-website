@@ -120,7 +120,8 @@ $(document).ready(initMotionDisplays);
 $('.liquidCommons a').click(function() {
   $('.liqSub').toggleClass('active');
 });
-//$('.mainMenu li a').click(function() {
-//  $('.mainMenu li .active').removeClass('active');
-//  $(this).addClass('active');
-//});
+
+$('.home a, .projects a').click(function() {
+  $('.liqSub').removeClass('active');
+});
+
