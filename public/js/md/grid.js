@@ -199,8 +199,6 @@ function Grid(options){
 		return (x + y * this.width) * 2;
 	};
 	this.setCurrentVariant = function(){
-		console.log(this.currentVariant + ' t' + this.currentTime);
-
 		this.variant = this.fields[this.currentVariant];
 	};
 	this.step = function(dt){

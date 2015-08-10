@@ -1,8 +1,10 @@
 function loadField(name, element, cb){
 
 	fieldsLoader(name, function(err, fields){
-		console.log(err || 'all fields loaded');
-		if(err) return;
+		if(err){
+			console.log('error loading fields: ', err.message ? err.message : err);
+			return;
+		}
 
 		var importedGridOptions = {
 				width: fieldInfo.x,
