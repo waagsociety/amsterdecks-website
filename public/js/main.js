@@ -20,7 +20,7 @@ function removeLoader(){
 
 setTimeout(removeLoader, 5000);
 
-var s = skrollr.init({forceHeight: false});
+// var s = skrollr.init({forceHeight: false});
 
 
 function hideNavigation(){
@@ -40,11 +40,9 @@ function navigation(){
   
   $('body').bind('DOMMouseScroll', function(e){
      if(e.originalEvent.detail > 0) {
-         //scroll down
-         console.log('Down');
+        hideNavigation();
      }else {
-         //scroll up
-         console.log('Up');
+        showNavigation();
      }
   });
 
@@ -90,9 +88,14 @@ function initMotionDisplays(){
   }
 
   assignFieldTrigger('#splashflow', 'gr-amsterdam');
+<<<<<<< HEAD
   assignFieldTrigger('#stromingRijn', 'watermartin');
   assignFieldTrigger('#stromingCenter', 'gr-amsterdam');
   
+=======
+//  assignFieldTrigger('#stromingRijn', 'watermartin');
+//  assignFieldTrigger('#stromingCenter', 'gr-amsterdam'); 
+>>>>>>> master
 }
 
 
@@ -106,19 +109,22 @@ jQuery(document).ready(function() {
 
 function systemView(name){
   var viewContainer = document.getElementById("aerialViewContainer"),
+      mainContainer = document.getElementById("systeem"),
       view = document.createElement("div");
   
   viewContainer.innerHTML = "";
+  mainContainer.className = "page page-3 left big-padding " + name;
   view.className = "view " + name;
   viewContainer.appendChild(view);  
+  
 }
-
-//var viewNav = document.getElementById('arialNav'),
-//    children = viewNav.childNodes;
-//
-//for (var i=0; i < children.length; i++) {
-//    children[i].getAttribute('id');
-//    console.log(children[i]);
-//}
-
 $(document).ready(initMotionDisplays);
+
+$('.liquidCommons a').click(function() {
+  $('.liqSub').toggleClass('active');
+});
+
+$('.home a, .projects a').click(function() {
+  $('.liqSub').removeClass('active');
+});
+
