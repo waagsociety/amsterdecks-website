@@ -1,4 +1,4 @@
-function loadField(name, element){
+function loadField(name, element, cb){
 
 	fieldsLoader(name, function(err, fields){
 		console.log(err || 'all fields loaded');
@@ -32,6 +32,6 @@ function loadField(name, element){
 		motionDisplay.canvas.style.width = Math.floor(importedGridOptions.width * scale) + 'px';
 		motionDisplay.canvas.style.height = Math.floor(importedGridOptions.height * scale) + 'px';
 
-		window.activeMotionDisplay = motionDisplay;
+		cb(motionDisplay);
 	});
 }

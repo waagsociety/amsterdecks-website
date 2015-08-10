@@ -1,8 +1,10 @@
-function loadField(name, element){
+function loadField(name, element, cb){
 
 	fieldsLoader(name, function(err, fields){
-		console.log(err || 'all fields loaded');
-		if(err) return;
+		if(err){
+			console.log('error loading fields: ', err.message ? err.message : err);
+			return;
+		}
 
 		var importedGridOptions = {
 				width: fieldInfo.x,
@@ -32,6 +34,6 @@ function loadField(name, element){
 		motionDisplay.canvas.style.width = Math.floor(importedGridOptions.width * scale) + 'px';
 		motionDisplay.canvas.style.height = Math.floor(importedGridOptions.height * scale) + 'px';
 
-		window.activeMotionDisplay = motionDisplay;
+		cb(motionDisplay);
 	});
 }

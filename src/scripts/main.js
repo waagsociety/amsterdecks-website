@@ -66,12 +66,16 @@ function initMotionDisplays(){
   function loadMotionDisplay(name, elem){
     if(activeMotionDisplayName === name) return; //because this function gets triggered a lot :(
     activeMotionDisplayName = name;
-    loadField(name, elem);
+    loadField(name, elem, function(motionDisplay){
+      activeMotionDisplay = motionDisplay;
+    });
   }
 
   function removeMotionDisplay($elem){
     activeMotionDisplayName = null;
-    window.activeMotionDisplay && window.activeMotionDisplay.stop();
+    if(activeMotionDisplay){
+      activeMotionDisplay.destroy();
+    }
     $elem.empty();
   }
 
