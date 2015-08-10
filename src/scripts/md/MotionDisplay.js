@@ -42,13 +42,15 @@ function MotionDisplay(options){
 
 	this.createParticles();
 
-	document.addEventListener('visibilitychange', function(e){
+	var pauseOrResume = this.pauseOrResume = function(e){
 		if(document.hidden){
 			this.stop();
 		} else {
 			this.start();
 		}
-	}.bind(this));
+	}.bind(this);
+
+	document.addEventListener('visibilitychange', pauseOrResume);
 
   this.timeStep = options.timeStep || 0.5;
 	this.start();
@@ -124,6 +126,10 @@ function MotionDisplay(options){
 		this.running = false;
 		clearTimeout(this.nextStep);
 	};
+	this.destroy = function(){
+		this.stop();
+		document.removeEventListener('visibilitychange', this.pauseOrResume);
+	}
 	this.step = function(){
 		var grid = this.grid,
 			ctx = this.context,
