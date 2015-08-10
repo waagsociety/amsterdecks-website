@@ -92,7 +92,6 @@ function initMotionDisplays(){
   assignFieldTrigger('#splashflow', 'gr-amsterdam');
 //  assignFieldTrigger('#stromingRijn', 'watermartin');
 //  assignFieldTrigger('#stromingCenter', 'gr-amsterdam');
-  
 }
 
 

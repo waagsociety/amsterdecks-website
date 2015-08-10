@@ -40,9 +40,11 @@ function navigation(){
   
   $('body').bind('DOMMouseScroll', function(e){
      if(e.originalEvent.detail > 0) {
-        hideNavigation();
+         //scroll down
+         console.log('Down');
      }else {
-        showNavigation();
+         //scroll up
+         console.log('Up');
      }
   });
 
@@ -89,7 +91,7 @@ function initMotionDisplays(){
 
   assignFieldTrigger('#splashflow', 'gr-amsterdam');
 //  assignFieldTrigger('#stromingRijn', 'watermartin');
-//  assignFieldTrigger('#stromingCenter', 'gr-amsterdam'); 
+//  assignFieldTrigger('#stromingCenter', 'gr-amsterdam');
 }
 
 
