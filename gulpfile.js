@@ -17,7 +17,7 @@ gulp.task('css', function () {
         .pipe(stylus({compress: true, paths: ['src/stylus']}))
         .pipe(autoprefixer())
         .pipe(minifyCSS())
-        .pipe(gulp.dest('./'))
+        .pipe(gulp.dest('./public/css/'))
 				.pipe(browserSync.reload({stream:true}))
 });
 
@@ -31,8 +31,7 @@ gulp.task('html', function() {
 gulp.task('js', function() {
   gulp.src([
     'bower_components/jquery/dist/jquery.js',
-    'bower_components/bower-skrollr/skrollr.min.js',
-    'scripts/jquery.viewportchecker.js'
+    'bower_components/bower-skrollr/skrollr.min.js'
   ])
     // concat pulls all our files together before minifying them
     .pipe( concat('output.min.js') )
@@ -45,18 +44,20 @@ gulp.task('scripts', function(){
     var target = gulp.src('src/jade/index.jade');
     var sources = gulp.src(['src/scripts/*.js'], {read: false});
     var exportString = 'public/js';
+  
     return target.pipe(inject(sources, {
                 ignorePath: 'src/scripts',
                 addPrefix: exportString,
                 addRootSlash: false
             }))
+    
     .pipe(gulp.dest('src/jade/'))
 		.pipe(browserSync.reload({stream:true}))
 });
 
 gulp.task('imagemin', function() {
   var imgSrc = './src/images/**/*',
-      imgDst = './images';
+      imgDst = './public/images';
   gulp.src(imgSrc)
     .pipe(changed(imgDst))
     .pipe(imagemin({
