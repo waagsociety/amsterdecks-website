@@ -20,7 +20,7 @@ function removeLoader(){
 
 setTimeout(removeLoader, 5000);
 
-// var s = skrollr.init({forceHeight: false});
+var s = skrollr.init({forceHeight: false});
 
 
 function hideNavigation(){
