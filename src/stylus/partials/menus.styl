@@ -16,12 +16,20 @@
     font-family 'Montserrat', sans-serif
     text-transform uppercase
   li
-    display inline
+    display inline-block
     margin 0 .5em
+  .liqSub
+    display none
+  .active
+    display inline-block
+    a
+      color rgba(#6e8fa8, 1)
   li
     a
       color darkgrey
       padding .2em
+    .active
+      text-decoration underline
 .subMenu
   position relative
   background rgba(secondary, .55)
@@ -32,7 +40,7 @@
     text-align center
     padding .5em 0
   li
-    display inline
+    display inline-block
     margin 0 .5em
   li
     a
