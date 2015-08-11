@@ -1,1 +1,1 @@
-var contaminatorSize = 4, contaminators = [];
+contaminatorSets['centercenter'] = { contaminatorSize: 4, contaminators: [] };

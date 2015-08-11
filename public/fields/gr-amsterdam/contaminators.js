@@ -1,1 +1,1 @@
-var contaminatorSize = 0, contaminators = [];
+contaminatorSets['gr-amsterdam'] = { size: 0, contaminators: [] };

@@ -10,7 +10,8 @@ function loadField(name, element, cb){
 				width: fieldInfo.x,
 				height: fieldInfo.y,
 				fields: fields,
-				timePassing: true
+				timePassing: true,
+				contaminatorInfo: contaminatorSets[name]
 			};
 
 		var width = $(element).innerWidth(),
@@ -25,7 +26,8 @@ function loadField(name, element, cb){
 			gridOptions: importedGridOptions,
 			width: Math.floor(importedGridOptions.width * scale),
 			height: Math.floor(importedGridOptions.height * scale),
-			clipPath: clipPath
+			clipPath: clipPaths[name],
+			contaminatorInfo: contaminatorSets[name]
 		});
 		
 		motionDisplay.container && element.appendChild(motionDisplay.container);

@@ -36,7 +36,8 @@ function MotionDisplay(options){
 		return this.renderField();
 	}
 
-	if(window.contaminators.length){
+	if(options.contaminatorInfo && options.contaminatorInfo.contaminators.length){
+		this.contaminatorInfo = options.contaminatorInfo;
 		this.createContaminatorElements();
 	}
 
@@ -175,7 +176,7 @@ function MotionDisplay(options){
 		while(i < l){
 			p = particles[i];
 
-			if(window.contaminators.length){
+			if(this.contaminatorInfo){
 				contaminants = grid.getContaminants(p.x, p.y);
 				if(contaminants.length){
 					p.contaminated = true;
