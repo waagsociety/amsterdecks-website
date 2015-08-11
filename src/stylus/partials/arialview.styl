@@ -46,30 +46,53 @@
         padding 0 medium-em
         cursor pointer
         font-family 'Montserrat', sans-serif
-        text-transform uppercase
-    p
-      padding 6%
-      
+        text-transform uppercase      
 
-#arialOverstortsText, #arialRzwiText, #arialSpuiText, #arialAgriText, #arialAllText
-    display none
-    
+.infoView
+  visibility hidden
+  height 0
+  width 0
+  padding 0
+  opacity 0
+  transition visibility 0s ease-out, opacity .5s ease-out
+
 .arialOverstorts
   #arialOverstortsText
-    display block
+    visibility visible
+    transform-origin left bottom
+    height auto
+    width auto
+    padding 4%
+    opacity 1
     
 .arialRzwi
   #arialRzwiText
-    display block
+    visibility visible
+    height auto
+    width auto
+    padding 4%
+    opacity 1
     
 .arialSpui
   #arialSpuiText
-    display block
+    visibility visible
+    height auto
+    width auto
+    padding 4%
+    opacity 1
     
 .arialAgri
   #arialAgriText
-    display block
+    visibility visible
+    height auto
+    width auto
+    padding 4%
+    opacity 1
     
 .arialAllText
   #arialAll
-    display block
+    visibility visible
+    height auto
+    width auto
+    padding 4%
+    opacity 1
