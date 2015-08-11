@@ -59,6 +59,8 @@ function navigation(){
 }
 navigation();
 
+//document.body.addEventListener('loadedMotionDisplay:gr-amsterdam', alert.bind(null, 'yay'));
+
 function initMotionDisplays(){
   var activeMotionDisplayNames = [],
       activeMotionDisplays = [];
@@ -70,6 +72,7 @@ function initMotionDisplays(){
     activeMotionDisplayNames.push(name);
     loadField(name, document.querySelector(field.parent), function(motionDisplay){
       activeMotionDisplays[name] = motionDisplay;
+      document.body.dispatchEvent(new Event('loadedMotionDisplay:' + name));
     });
   }
 
@@ -110,9 +113,9 @@ function systemView(name){
   viewContainer.innerHTML = "";
   mainContainer.className = "page page-3 left big-padding " + name;
   view.className = "view " + name;
-  viewContainer.appendChild(view);  
-  
+  viewContainer.appendChild(view);    
 }
+
 $(document).ready(initMotionDisplays);
 
 $('.liquidCommons a').click(function() {
