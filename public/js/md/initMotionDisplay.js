@@ -1,6 +1,8 @@
 function loadField(name, element, cb){
 
 	fieldsLoader(name, function(err, fields){
+		var fieldInfo = fieldInfos[name];
+
 		if(err){
 			console.log('error loading fields: ', err.message ? err.message : err);
 			return;
