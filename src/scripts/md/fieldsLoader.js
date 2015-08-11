@@ -2,14 +2,26 @@ function fieldsLoader(name, cb){
 	var fieldRootPath = 'public/fields/' + name + '/',
 		metaScript = document.createElement('script'),
 		clipScript = document.createElement('script'),
-		contaminatorsScript = document.createElement('script');
+		contaminatorsScript = document.createElement('script'),
+		loaded = {},
+		fields = {};
+
+	function afterLoad(type){
+		loaded[type] = true;
+		if(loaded.clip && loaded.contaminators && loaded.fields){
+			cb(null, fields);
+		}
+	}
 
 	metaScript.src = fieldRootPath + 'meta.js';
 	metaScript.addEventListener('load', proceed);
 
 	clipScript.src = fieldRootPath + 'clip.js';
+	clipScript.addEventListener('load', afterLoad.bind(null, 'clip'));
+
 	contaminatorsScript.src = fieldRootPath + 'contaminators.js';
-	
+	contaminatorsScript.addEventListener('load', afterLoad.bind(null, 'contaminators'));
+
 	document.body.appendChild(metaScript);
 	document.body.appendChild(clipScript);
 	document.body.appendChild(contaminatorsScript);
@@ -18,8 +30,7 @@ function fieldsLoader(name, cb){
 
 	function proceed(){
 
-		var fields = {},
-	    	canvas = document.createElement('canvas'),
+		var canvas = document.createElement('canvas'),
 	    	width = canvas.width = fieldInfo.x,
 	    	height = canvas.height = fieldInfo.y,
 	    	ctx = canvas.getContext('2d'),
@@ -77,7 +88,7 @@ function fieldsLoader(name, cb){
 			 	fields[variant][T] = field;
 
 			 	done++;
-			 	if(done === total) cb(null, fields);
+			 	if(done === total) afterLoad('fields');
 			});
 		});
 	}
