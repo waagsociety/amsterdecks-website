@@ -60,36 +60,35 @@ function navigation(){
 navigation();
 
 function initMotionDisplays(){
-  var activeMotionDisplayName,
-      activeMotionDisplay;
+  var activeMotionDisplayNames = [],
+      activeMotionDisplays = [];
 
-  function loadMotionDisplay(name, elem){
-    if(activeMotionDisplayName === name) return; //because this function gets triggered a lot :(
-    activeMotionDisplayName = name;
-    loadField(name, elem, function(motionDisplay){
-      activeMotionDisplay = motionDisplay;
+  function loadMotionDisplay(field){
+    var name = field.name;
+
+    if(activeMotionDisplayNames.indexOf(name) > -1) return; //because this function gets triggered a lot :(
+    activeMotionDisplayNames.push(name);
+    loadField(name, document.querySelector(field.parent), function(motionDisplay){
+      activeMotionDisplays[name] = motionDisplay;
     });
   }
 
-  function removeMotionDisplay($elem){
-    activeMotionDisplayName = null;
-    if(activeMotionDisplay){
-      activeMotionDisplay.destroy();
+  function removeMotionDisplay(field){
+    activeMotionDisplayNames.splice(activeMotionDisplays.indexOf(field.name));
+    if(activeMotionDisplays[field.name]){
+      activeMotionDisplays[field.name].destroy();
+      delete activeMotionDisplays[field.name];
     }
-    $elem.empty();
+    document.querySelector(field.parent).innerHTML = '';
   }
 
-  function assignFieldTrigger(selector, fieldName){
-    $(selector).viewportChecker({repeat: true, callbackFunction: function($elem, action){
-      if(action === 'add'){
-        loadMotionDisplay(fieldName, $elem[0]);
-      } else {
-        removeMotionDisplay($elem);
-      }
-    }})
+  function assignFieldTrigger(selectorVisibility, fields){
+    $(selectorVisibility).viewportChecker({repeat: true, callbackFunction: function($elem, action){
+      fields.forEach(action === 'add' ? loadMotionDisplay : removeMotionDisplay);
+    }});
   }
 
-  assignFieldTrigger('#splashflow', 'gr-amsterdam');
+  assignFieldTrigger('#splashflow', [{ name: 'gr-amsterdam', parent: '#splashflow' }]);
 //  assignFieldTrigger('#stromingRijn', 'watermartin');
 //  assignFieldTrigger('#stromingCenter', 'gr-amsterdam');
 }
