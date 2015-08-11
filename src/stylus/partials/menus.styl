@@ -16,12 +16,32 @@
     font-family 'Montserrat', sans-serif
     text-transform uppercase
   li
-    display inline
+    display inline-block
     margin 0 .5em
+  .liqSub
+    visibility:hidden;
+    opacity: 0
+    width 0
+    padding 0
+    margin 0
+    transform scale(.1, 1)
+    transform-origin left center
+    transition visibility 0s ease-out, opacity .5s ease-out, transform .1s ease-out
+  .active
+    visibility:visible;
+    opacity: 1
+    width auto
+    margin 0 .5em
+    transform scale(1, 1)
+    display inline-block
+    a
+      color rgba(#6e8fa8, 1)
   li
     a
       color darkgrey
       padding .2em
+    .active
+      text-decoration underline
 .subMenu
   position relative
   background rgba(secondary, .55)
@@ -32,7 +52,7 @@
     text-align center
     padding .5em 0
   li
-    display inline
+    display inline-block
     margin 0 .5em
   li
     a
