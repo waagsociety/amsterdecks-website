@@ -90,8 +90,8 @@ function initMotionDisplays(){
     }});
   }
 
-  assignFieldTrigger('#splashflow', [{ name: 'gr-amsterdam', parent: '#splashflow' }]);
-  assignFieldTrigger('#stromingCenter', [{ name: 'centercenter', parent: '#stromingCenter' }]);
+//  assignFieldTrigger('#splashflow', [{ name: 'gr-amsterdam', parent: '#splashflow' }]);
+  assignFieldTrigger('#stromingCenter', [{ name: 'gr-amsterdam', parent: '#stromingCenter' }]);
 //  assignFieldTrigger('#stromingRijn', 'watermartin');
 //  assignFieldTrigger('#stromingCenter', 'gr-amsterdam');
 }
