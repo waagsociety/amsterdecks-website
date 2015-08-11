@@ -18,8 +18,9 @@ function removeLoader(){
   $('.loader').remove();
 };
 
-setTimeout(removeLoader, 5000);
+document.body.addEventListener('loadedMotionDisplay:gr-amsterdam', removeLoader);
 
+//setTimeout(removeLoader, 5000);
 // var s = skrollr.init({forceHeight: false});
 
 
@@ -59,8 +60,6 @@ function navigation(){
 }
 navigation();
 
-//document.body.addEventListener('loadedMotionDisplay:gr-amsterdam', alert.bind(null, 'yay'));
-
 function initMotionDisplays(){
   var activeMotionDisplayNames = [],
       activeMotionDisplays = [];
@@ -92,6 +91,7 @@ function initMotionDisplays(){
   }
 
   assignFieldTrigger('#splashflow', [{ name: 'gr-amsterdam', parent: '#splashflow' }]);
+  assignFieldTrigger('#stromingCenter', [{ name: 'centercenter', parent: '#stromingCenter' }]);
 //  assignFieldTrigger('#stromingRijn', 'watermartin');
 //  assignFieldTrigger('#stromingCenter', 'gr-amsterdam');
 }
