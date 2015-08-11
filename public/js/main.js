@@ -62,7 +62,55 @@ navigation();
 
 function initMotionDisplays(){
   var activeMotionDisplayNames = [],
-      activeMotionDisplays = [];
+      activeMotionDisplays = [],
+      preloadedPngs = false;
+
+  document.body.addEventListener('loadedMotionDisplay:gr-amsterdam', preloadPngs);
+
+  function preloadPngs(e){
+    if(preloadedPngs) return;
+
+    preloadedPngs = true;
+    var loadedName = e.type.split(':')[1],
+        allFields = Object.keys(fieldInfos);
+
+    allFields.splice(allFields.indexOf(loadedName), 1);
+
+    allFields.forEach(preloadField);
+
+    function preloadField(name){
+      var fieldInfo = fieldInfos[name],
+          pngPreloadWrapper = document.createElement('div'),
+          pathPrefix = 'public/fields/' + fieldInfo.diskName + '/',
+          metaKeys = Object.keys(fieldInfo.meta),
+          loadedPngs = 0,
+          total = metaKeys.length;
+
+      pngPreloadWrapper.style.display = 'none';
+      pngPreloadWrapper.id = 'preload-' + name;
+
+      metaKeys.forEach(addPng);
+
+      document.body.appendChild(pngPreloadWrapper);
+
+      function addPng(key){
+        var png = new Image();
+
+        png.src = pathPrefix + key + '.png';
+        png.onload = loadedPng;
+
+        pngPreloadWrapper.appendChild(png);
+      }
+
+      function loadedPng(){
+        loadedPngs++;
+        if(loadedPngs === total){
+          console.log(name + ' preloaded!');
+          pngPreloadWrapper.remove();
+        }
+      }
+    }
+  }
 
   function loadMotionDisplay(field){
     var name = field.name;
