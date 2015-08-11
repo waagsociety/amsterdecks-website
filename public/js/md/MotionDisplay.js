@@ -93,7 +93,7 @@ function MotionDisplay(options){
 			scale /= devicePixelRatio;
 		}
 
-		contaminators.forEach(function(contaminator){
+		this.contaminatorInfo.contaminators.forEach(function(contaminator){
 			var contaminatorElement = document.createElement('div'),
 				position = contaminator.position,
 				size = contaminator.size * scale;
