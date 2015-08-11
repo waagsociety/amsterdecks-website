@@ -52,15 +52,23 @@ gulp.task('contaminatorsAndClipPaths', function(){
 });
 
 gulp.task('scripts', function(){ 
-    var target = gulp.src('src/jade/index.jade');
+    var targetBody = gulp.src('src/jade/index.jade');
+    var targetHead = gulp.src('src/jade/header.jade');
     var sources = gulp.src(['src/scripts/*.js'], {read: false});
+    var preLoadScripts = gulp.src(['src/scripts/preload/*.js'], {read: false});
     var exportString = 'public/js';
   
-    return target.pipe(inject(sources, {
-                ignorePath: 'src/scripts',
-                addPrefix: exportString,
-                addRootSlash: false
-            }))
+    targetBody.pipe(inject(sources, {
+        ignorePath: 'src/scripts',
+        addPrefix: exportString,
+        addRootSlash: false
+    }))
+    targetHead.pipe(inject(preLoadScripts, {
+        ignorePath: 'src/scripts',
+        addPrefix: exportString,
+        addRootSlash: false,
+        starttag: '//- inject:head:js'
+    }))
     
     .pipe(gulp.dest('src/jade/'))
 		.pipe(browserSync.reload({stream:true}))
@@ -84,6 +92,9 @@ gulp.task('copy', function(){
   
   gulp.src('src/scripts/md/*.js')
     .pipe(gulp.dest('./public/js/md'));
+  
+  gulp.src('src/scripts/preload/*.js')
+    .pipe(gulp.dest('./public/js/preload'));
 });
 
 gulp.task('jshint', function() {
