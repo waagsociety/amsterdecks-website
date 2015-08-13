@@ -139,19 +139,47 @@ function initMotionDisplays(){
   }
 
   assignFieldTrigger('#splashflow', [{ name: 'gr-amsterdam', parent: '#splashflow' }]);
-  assignFieldTrigger('#stromingCenter', [{ name: 'centercenter', parent: '#stromingCenter' }]);
+//  assignFieldTrigger('#overstortenFlow', [{ name: 'overstorten', parent: '#overstortenFlow' }]);
+//  assignFieldTrigger('#stromingRijn', [{ name: 'zuurstof-amstel', parent: '#stromingRijn' }]);
 //  assignFieldTrigger('#stromingRijn', 'watermartin');
 //  assignFieldTrigger('#stromingCenter', 'gr-amsterdam');
 }
 
 
-jQuery(document).ready(function() {
+jQuery(document).ready(documentReady);
+
+$(document).ready(initMotionDisplays);
+
+$('.liquidCommons a').click(titleSubLinkClick);
+
+$('.home a, .projects a').click(titleLinkClick);
+
+$('#kwaliteit .clickable').on('click', kwaliteitElementClick);
+
+function documentReady() {
     jQuery('.systeemNav').addClass("hidden").viewportChecker({
         classToAdd: 'visible animated fadeInUp',
         offset: -50,
         repeat: true
        });
-});
+}
+
+function titleSubLinkClick() {
+  $('.liqSub').toggleClass('active');
+}
+
+function titleLinkClick() {
+  $('.liqSub').removeClass('active');
+}
+
+function kwaliteitElementClick(e){
+  $('#kwaliteit .landscape-block').removeClass('active');
+  e.currentTarget.dataset.highlight.split(',').forEach(function(selector){
+    document.querySelector(selector).classList.add('active');
+  });
+  $('#kwaliteit .clickable').removeClass('active');
+  e.currentTarget.classList.add('active');
+}
 
 function systemView(name){
   var viewContainer = document.getElementById("aerialViewContainer"),
@@ -164,13 +192,11 @@ function systemView(name){
   viewContainer.appendChild(view);    
 }
 
-$(document).ready(initMotionDisplays);
-
-$('.liquidCommons a').click(function() {
-  $('.liqSub').toggleClass('active');
-});
-
-$('.home a, .projects a').click(function() {
-  $('.liqSub').removeClass('active');
-});
-
+function doorsnedeView(name){
+  var viewContainer = document.getElementById("doorsnedeContainer"),
+      mainContainer = document.getElementById("doorsnede"),
+      view = document.createElement("div");
+  viewContainer.innerHTML = "";
+  view.className = "view " + name;
+  viewContainer.appendChild(view);    
+}
