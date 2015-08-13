@@ -96,7 +96,7 @@
 		</g>
 	</g>
 </g>
-<g id="kust">
+<g id="kust" class="clickable" data-highlight="#icon-kust">
 	<g>
 		<path fill="#004261" d="M581.7,198.4l0-0.1v-0.1l-0.1,0l-0.1,0c-0.4-0.3-0.8-0.5-1.6-1l-0.5-0.3c-0.9-0.5-2.1-1.2-3.3-1.9
 			l-1.6-0.9c-1.6-0.9-3-1.7-4.2-2.4l-0.2-0.1c-1.2-0.7-2.4-1.3-3.4-1.9c-1.2-0.7-2.2-1.3-3.1-1.9c-1-0.7-2.2-1.5-3.2-2.3
@@ -373,7 +373,7 @@
 		</g>
 	</g>
 </g>
-<g id="icon-kust">
+<g id="icon-kust" class="clickable" data-highlight="#kust">
 	
 		<text transform="matrix(0.9993 -3.854000e-02 3.854000e-02 0.9993 538.3943 535.7948)" opacity="0.5" fill="#231F20" font-family="'AvenirNext-Bold'" font-size="12">KUST</text>
 	<g>
@@ -730,7 +730,7 @@
 		</g>
 	</g>
 </g>
-<g id="stedelijk">
+<g id="stedelijk" class="clickable" data-highlight="#icon-stedelijk,#icon-bacterien,#icon-nutrienten,#icon-drijfvuil, #icon-chemisch">
 	<g>
 		<path fill="#004261" d="M328.6,260.6l62.4-36.8l0,5.7l-57.8,34l0,0.6L328.6,260.6z M396.1,220.8l-3.4,1.9l8.7-5.2l0-0.7l-12.2-9.7
 			l0-4.4l15.9,12.6l33-19.4l4.1,3.3l-29.8,17.6l-1.4-1.1l-5.1,2.9l0,2.1l-5.8,3.4L396.1,220.8z"/>
@@ -1273,7 +1273,7 @@
 		</g>
 	</g>
 </g>
-<g id="icon-stedelijk">
+<g id="icon-stedelijk" class="clickable" data-highlight="#stedelijk,#icon-bacterien,#icon-nutrienten,#icon-drijfvuil, #icon-chemisch">
 	
 		<text transform="matrix(1 0 0 1 410.0569 535.7808)" opacity="0.5" fill="#231F20" font-family="'AvenirNext-Bold'" font-size="12">STEDELIJK</text>
 	<g opacity="0.5">
@@ -1295,7 +1295,7 @@
 </g>
 <g id="ICONS">
 </g>
-<g id="icon-sediment">
+<g id="icon-sediment" class="clickable" data-highlight="#icon-landbouw,#landbouw,#icon-industrie,#industrie">
 	<text transform="matrix(1 0 0 1 516.0557 11.8855)" fill="#F15A22" font-family="'AvenirNext-Bold'" font-size="12">SEDIMENT</text>
 	<g>
 		<g>
@@ -1344,7 +1344,7 @@
 		<circle fill="#FFFFFF" cx="567.2" cy="58.2" r="1.6"/>
 	</g>
 </g>
-<g id="icon-nutrienten">
+<g id="icon-nutrienten" class="clickable" data-highlight="#icon-landbouw,#landbouw,#icon-stedelijk,#stedelijk,#icon-industrie,#industrie">
 	<text transform="matrix(1 0 0 1 416.7863 11.8855)" fill="#F15A22" font-family="'AvenirNext-Bold'" font-size="12">NUTRIENTEN</text>
 	<g>
 		<circle fill="none" stroke="#F15A22" stroke-width="2.8347" stroke-miterlimit="10" cx="457.9" cy="50.3" r="23.2"/>
@@ -1366,7 +1366,7 @@
 		<text transform="matrix(1 0 0 1 472.6967 51.5371)" fill="#FFFFFF" font-family="'HelveticaNeue-Bold'" font-size="5.1396">P</text>
 	</g>
 </g>
-<g id="icon-zuurstof">
+<g id="icon-zuurstof" class="clickable" data-highlight="#icon-landbouw,#landbouw">
 	<text transform="matrix(1 0 0 1 331.4067 11.8855)" fill="#F15A22" font-family="'AvenirNext-Bold'" font-size="12">ZUURSTOF</text>
 	<g>
 		
@@ -1377,7 +1377,7 @@
 		<line fill="none" stroke="#F15A22" stroke-width="2.8347" stroke-miterlimit="10" x1="380.4" y1="32.1" x2="349.7" y2="66.8"/>
 	</g>
 </g>
-<g id="icon-chemisch">
+<g id="icon-chemisch" class="clickable" data-highlight="#icon-landbouw,#landbouw,#icon-stedelijk,#stedelijk,#icon-industrie,#industrie">
 	<text transform="matrix(1 0 0 1 239.3669 11.8855)" fill="#F15A22" font-family="'AvenirNext-Bold'" font-size="12">CHEMISCH</text>
 	<g>
 		<circle fill="none" stroke="#F15A22" stroke-width="2.8347" stroke-miterlimit="10" cx="274.2" cy="50.3" r="23.2"/>
@@ -1391,7 +1391,7 @@
 		</g>
 	</g>
 </g>
-<g id="icon-drijfvuil">
+<g id="icon-drijfvuil" class="clickable" data-highlight="#icon-stedelijk,#stedelijk">
 	<text transform="matrix(1 0 0 1 148.936 11.8855)" fill="#F15A22" font-family="'AvenirNext-Bold'" font-size="12">DRIJFVUIL</text>
 	<g>
 		<circle fill="none" stroke="#F15A22" stroke-width="2.8347" stroke-miterlimit="10" cx="182.3" cy="50.3" r="23.2"/>
@@ -1421,7 +1421,7 @@
 			C194,60.2,193.7,59.9,193.4,59.6z"/>
 	</g>
 </g>
-<g id="icon-bacterien">
+<g id="icon-bacterien" class="clickable" data-highlight="#industrie,#icon-industrie,#icon-stedelijk,#stedelijk">
 	<text transform="matrix(1 0 0 1 53.914 11.8855)" fill="#F15A22" font-family="'AvenirNext-Bold'" font-size="12">BACTERIEN</text>
 	<g>
 		<circle fill="none" stroke="#F15A22" stroke-width="2.8347" stroke-miterlimit="10" cx="90.4" cy="50.3" r="23.2"/>

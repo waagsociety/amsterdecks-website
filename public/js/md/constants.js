@@ -5,11 +5,11 @@ var τ = 2 * Math.PI,
 	fieldSettings = {
 		defaults: {
 			particleColor: 'rgb(255,255,255)',
-			backgroundColor: 'rgb(16,32,64)',
-			trailLength: 0.5,
+			backgroundColor: 'rgb(0,0,0)',
+			trailLength: 1,
 			particleSpeed: 10,
 			particleDensity: 0.05,
-			particleMaxAge: 1000,
-			timeStep: 18
+			particleMaxAge: 20,
+			timeStep: 18 / 10
 		}
 	};
