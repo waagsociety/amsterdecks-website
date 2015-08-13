@@ -17,6 +17,8 @@ function loadField(name, element, cb){
 				contaminatorInfo: contaminatorSets[name],
 				particleSpeed: settings.particleSpeed,
 				particleMaxAge: settings.particleMaxAge,
+				spawnArray: spawnArrays[name],
+				contaminants: contaminants[name]
 			};
 
 		var width = $(element).innerWidth(),
@@ -42,6 +44,9 @@ function loadField(name, element, cb){
 		
 		motionDisplay.container && element.appendChild(motionDisplay.container);
 		element.appendChild(motionDisplay.canvas);
+
+		spawnArrays[name] = motionDisplay.grid.spawnArray;
+		contaminants[name] = motionDisplay.grid.contaminants;
 
 		motionDisplay.canvas.style.width = Math.floor(importedGridOptions.width * scale) + 'px';
 		motionDisplay.canvas.style.height = Math.floor(importedGridOptions.height * scale) + 'px';

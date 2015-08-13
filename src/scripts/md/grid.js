@@ -28,9 +28,10 @@ function Grid(options){
 		this.T = this.floorT = this.ceilT = this.t = 0;
 	}
 
-	this.contaminatorInfo = options.contaminatorInfo;
+	this.contaminators = options.contaminatorInfo.contaminators;
 
 	this.spawnArray = options.spawnArray || this.createSpawnArrayAndContaminatorPositions();
+	this.contaminants = options.contaminants || {};
 }
 (function(){
 	this.getLocalV = function(x, y){
@@ -115,7 +116,7 @@ function Grid(options){
 	};
 	this.createSpawnArrayAndContaminatorPositions = function(buffer){
 		var spawnArray = [],
-			subscriber = this.contaminatorInfo && this.contaminatorInfo.contaminators.length && this.setContaminatorStatusOfPoint.bind(this),
+			subscriber = this.contaminators && this.contaminators.length && this.setContaminatorStatusOfPoint.bind(this),
 			width = this.width,
 			height = this.height,
 			i = 0,
@@ -158,7 +159,7 @@ function Grid(options){
 		this.contaminants = this.contaminants || {};
 		var foundContaminator = false,
 			i = 0,
-			contaminators = this.contaminatorInfo.contaminators,
+			contaminators = this.contaminators,
 			contaminator,
 			size, position, distance,
 			dx, dy, type;

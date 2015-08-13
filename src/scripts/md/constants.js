@@ -9,7 +9,9 @@ var τ = 2 * Math.PI,
 			trailLength: 1,
 			particleSpeed: 10,
 			particleDensity: 0.05,
-			particleMaxAge: 20,
+			particleMaxAge: 100,
 			timeStep: 18 / 10
 		}
-	};
+	},
+	spawnArrays = {},
+	contaminants = {};
