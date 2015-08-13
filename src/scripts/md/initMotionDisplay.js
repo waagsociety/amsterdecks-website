@@ -1,7 +1,8 @@
 function loadField(name, element, cb){
 
 	fieldsLoader(name, function(err, fields){
-		var fieldInfo = fieldInfos[name];
+		var fieldInfo = fieldInfos[name],
+			settings = fieldSettings[name] || fieldSettings.defaults;
 
 		if(err){
 			console.log('error loading fields: ', err.message ? err.message : err);
@@ -13,7 +14,9 @@ function loadField(name, element, cb){
 				height: fieldInfo.y,
 				fields: fields,
 				timePassing: true,
-				contaminatorInfo: contaminatorSets[name]
+				contaminatorInfo: contaminatorSets[name],
+				particleSpeed: settings.particleSpeed,
+				particleMaxAge: settings.particleMaxAge,
 			};
 
 		var width = $(element).innerWidth(),
@@ -29,7 +32,12 @@ function loadField(name, element, cb){
 			width: Math.floor(importedGridOptions.width * scale),
 			height: Math.floor(importedGridOptions.height * scale),
 			clipPath: clipPaths[name],
-			contaminatorInfo: contaminatorSets[name]
+			contaminatorInfo: contaminatorSets[name],
+			particleColor: settings.particleColor,
+			particleDensity: settings.particleDensity,
+			backgroundColor: settings.backgroundColor,
+			trailLength: settings.trailLength,
+			timeStep: settings.timeStep
 		});
 		
 		motionDisplay.container && element.appendChild(motionDisplay.container);

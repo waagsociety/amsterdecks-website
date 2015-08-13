@@ -1,7 +1,39 @@
 .doorsnedeContainer
-  background-image url(../images/doorsnede.jpg)
-  background-size contain
-  background-repeat no-repeat
-  padding 36% 0
-  width 100%
-  position relative
+    padding 36% 0
+    width 100%
+    position relative
+  .view
+    background-size contain
+    background-repeat no-repeat
+    position absolute
+    width 100%
+    height 100%
+    left 0
+    top 0
+  .droog
+    background-image url(../images/doorsnede_droog.jpg)
+  .droog-opwoeling
+    background-image url(../images/doorsnede_droog_opwoeling.jpg)
+  .droog-woonboot
+    background-image url(../images/doorsnede_droog_woonboot.jpg)
+  .rain
+    background-image url(../images/doorsnede_rain.jpg)
+  .rain-overstort
+    background-image url(../images/doorsnede_rain_overstort.jpg)
+  .rain-uitspoeling
+    background-image url(../images/doorsnede_rain_uitspoeling.jpg)
+
+.doorsnedeNav
+  margin-bottom medium-em
+  li
+    cursor pointer
+    padding small-percentage
+    border 2px solid brand-color
+    display inline-block
+    margin 0 small-percentage small-percentage 0
+    &:hover
+      background-color brand-color
+      color canvas
+  .active
+    background-color brand-color
+    color canvas

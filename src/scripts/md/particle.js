@@ -1,16 +1,16 @@
-function Particle(options) {
+function Particle(options, grid) {
   this.x = options.x;
   this.y = options.y;
   this.dx = 0;
   this.dy = 0;
-  this.age = options.age || Math.ceil(Math.random() * pMaxAge);
+  this.age = options.age || Math.ceil(Math.random() * grid.particleMaxAge);
 }
 
 (function(){
   this.step = function(grid){
     delete this.reset;
 
-    var particleSpdFactor = window.particleSpdFactor || 1,
+    var particleSpdFactor = grid.particleSpeed,
         spawnArray = grid.spawnArray,
         index;
 
@@ -21,7 +21,7 @@ function Particle(options) {
     this.age -= Math.min( 1 / ( Math.pow(this.dx, 2) + Math.pow(this.dy, 2) ), 1 );// * (this.contaminated ? 1/1000 : 1 );
 
     if(this.age < 0 || (!this.dx && !this.dy) || !(this.x >= 0 && this.x < grid.width && this.y >= 0 && this.y < grid.width)){ //died of old age or exited bounds
-      this.age = Math.ceil(Math.random() * pMaxAge);
+      this.age = Math.ceil(Math.random() * grid.particleMaxAge);
 
       index = Math.floor(Math.random() * spawnArray.length / 2) * 2;
 

@@ -46,7 +46,8 @@ gulp.task('contaminatorsAndClipPaths', function(){
   gulp.src([
     'public/fields/**/contaminators.js',
     'public/fields/**/clip.js',
-    'public/fields/**/meta.js'
+    'public/fields/**/meta.js',
+    'public/fields/**/settings.js'
   ])
     .pipe( concat('clipsContaminators.min.js') )
     .pipe( gulp.dest('./public/js/md') )
