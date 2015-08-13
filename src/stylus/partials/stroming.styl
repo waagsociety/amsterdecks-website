@@ -23,3 +23,26 @@
 #stromingCenter, #stromingRijn
   width 100%
   height 100%
+  
+.spui
+  width 100%
+  padding 50% 0
+  .view
+    position absolute
+    left 0
+    top 0
+    height 100%
+    width 100%
+    background-size contain
+    background-repeat no-repeat
+    transition opacity 5s ease-out
+  .laag
+    background-image url(../images/spui_laag.jpg)
+    opacity 0
+    z-index 1
+  .hoog
+    background-image url(../images/spui_hoog.jpg)
+    opacity 1
+    z-index 2
+  .active
+    opacity 1
