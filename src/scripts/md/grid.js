@@ -2,6 +2,8 @@ function Grid(options){
 	this.width = options.width || defs.width;
 	this.height = options.height || defs.height;
 
+	this.particleSpeed = options.particleSpeed || 1;
+
 	this.fields = options.fields;
 
 	this.variants = Object.keys(this.fields);
@@ -177,9 +179,9 @@ function Grid(options){
 			if(distance > size) continue;
 
 			type = contaminator.type;
-			this.contaminants[type] = this.contaminants[type] || [];
+			this.contaminants[type] = this.contaminants[type] || {};
 			
-			if(this.contaminants[type].indexOf(index) === -1) this.contaminants[type].push(index);
+			this.contaminants[type][index] = true;
 		}
 	};
 	this.getContaminants = function(x, y){
@@ -191,7 +193,7 @@ function Grid(options){
 		contaminantKeys.forEach(function(type){
 			var indexes = contaminants[type];
 
-			if(~indexes.indexOf(index)){
+			if(indexes[index]){
 				foundContaminants.push(type);
 			}
 		});
