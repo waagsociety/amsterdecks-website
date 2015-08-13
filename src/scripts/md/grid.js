@@ -3,6 +3,7 @@ function Grid(options){
 	this.height = options.height || defs.height;
 
 	this.particleSpeed = options.particleSpeed || 1;
+	this.particleMaxAge = options.particleMaxAge || 100;
 
 	this.fields = options.fields;
 

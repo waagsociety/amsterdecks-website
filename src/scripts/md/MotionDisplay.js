@@ -21,8 +21,15 @@ function MotionDisplay(options){
 
 	enrichContext(this.context);
 
-	this.numParticles = options.numParticles || Math.min(0.1, 1) * this.grid.spawnArray.length / 2;
-	this.background = options.background || 'rgba(0,0,0,0.06)';
+	this.numParticles = options.numParticles || (options.particleDensity || 0.1) * this.grid.spawnArray.length / 2;
+	
+	var backgroundColor = options.backgroundColor || 'rgb(0,0,0)',
+		trailFactor = 5,
+		alpha = 1 - fit( options.trailLength !== undefined ? (!options.trailLength ? 0 : options.trailLength / trailFactor + 1 / trailFactor * (trailFactor - 1)) : 0.5, 0, 1, 0, 0.97); //eg trailFactor 10 creates 0.9 + trailLength / 10
+
+	this.background = 'rgba(' + /\((.+)\)/.exec(backgroundColor)[1].split(',').slice(0,3) + ',' + alpha + ')';
+
+	this.particleColor = options.particleColor || 'white';
 	this.context.fillStyle = this.background;
 
 	this.showFieldSpeed = options.showFieldSpeed ? true : options.showFieldSpeed === false ? false : true;
@@ -71,7 +78,7 @@ function MotionDisplay(options){
 				x: -1,
 				y: -1,
 				age: 1,
-			});
+			}, grid);
 			particle.step(grid);
 			particles.push(particle);
 		}
@@ -93,7 +100,7 @@ function MotionDisplay(options){
 			scale /= devicePixelRatio;
 		}
 
-		this.contaminatorInfo.contaminators.forEach(function(contaminator){
+		contaminators.forEach(function(contaminator){
 			var contaminatorElement = document.createElement('div'),
 				position = contaminator.position,
 				size = contaminator.size * scale;
@@ -196,7 +203,7 @@ function MotionDisplay(options){
 
 			i++;
 		}
-    	ctx.strokeStyle = 'white';
+    	ctx.strokeStyle = this.particleColor;
 		ctx.stroke();
 
 		var contaminatedParticles = this.contaminatedParticles;
