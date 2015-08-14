@@ -157,6 +157,10 @@ $('.home a, .projects a').click(titleLinkClick);
 
 $('#kwaliteit .clickable').on('click', kwaliteitElementClick);
 
+$('#doorsnede .doorsnede-button').on({
+  click: doorsnedeViewActivate
+});
+
 function documentReady() {
     jQuery('.systeemNav').addClass("hidden").viewportChecker({
         classToAdd: 'visible animated fadeInUp',
@@ -215,10 +219,14 @@ function systemView(name){
   viewContainer.appendChild(view);    
 }
 
-function doorsnedeView(name){
-  var viewContainer = document.getElementById("doorsnedeContainer"),
+function doorsnedeViewActivate(e){
+  var name = e.currentTarget.dataset.name,
+      viewContainer = document.getElementById("doorsnedeContainer"),
       mainContainer = document.getElementById("doorsnede"),
       view = document.createElement("div");
+  
+  document.querySelector('.doorsnedeNav li.active').classList.remove('active');
+  e.currentTarget.classList.add('active');
   
   viewContainer.innerHTML = "";
   view.className = "view " + name;
