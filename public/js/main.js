@@ -151,6 +151,7 @@ jQuery(document).ready(documentReady);
 $(document).ready(initMotionDisplays);
 
 $('.liquidCommons a').click(titleSubLinkClick);
+$('.rioolNav li').click(rioolMenuClick);
 
 $('.home a, .projects a').click(titleLinkClick);
 
@@ -172,12 +173,34 @@ function titleLinkClick() {
   $('.liqSub').removeClass('active');
 }
 
+function rioolMenuClick(){
+  $('.rioolNav li').removeClass('active');  
+  $(this).toggleClass('active');  
+  $('.regenOverstort').toggleClass('active');
+  $('.droogOverstort').toggleClass('active');
+}
+
 function kwaliteitElementClick(e){
-  $('#kwaliteit .landscape-block').removeClass('active');
+  Array.prototype.forEach.call(document.querySelectorAll('#kwaliteit .clickable'), function(elem){
+    elem.classList.remove('active');
+  });
+  
   e.currentTarget.dataset.highlight.split(',').forEach(function(selector){
     document.querySelector(selector).classList.add('active');
   });
   $('#kwaliteit .clickable').removeClass('active');
+  e.currentTarget.classList.add('active');
+}
+
+function kwaliteitElementClick(e){
+  Array.prototype.forEach.call(document.querySelectorAll('#kwaliteit .clickable'), function(elem){
+    elem.classList.remove('active');
+  });
+  $('#qualityTextContainer div').removeClass('active');
+  
+  e.currentTarget.dataset.highlight.split(',').forEach(function(selector){
+    document.querySelector(selector).classList.add('active');
+  });
   e.currentTarget.classList.add('active');
 }
 
@@ -196,6 +219,7 @@ function doorsnedeView(name){
   var viewContainer = document.getElementById("doorsnedeContainer"),
       mainContainer = document.getElementById("doorsnede"),
       view = document.createElement("div");
+  
   viewContainer.innerHTML = "";
   view.className = "view " + name;
   viewContainer.appendChild(view);    
