@@ -84,14 +84,19 @@
     
 .clickable
   cursor pointer
-  
-  
-  
+    
 #qualityTextContainer
   h2
     color rgb(241, 90, 34)
   div
+    visibility hidden
+    width 0
+    height 0
+    transition opacity .5s ease-out
     opacity 0
 #qualityTextContainer
   .active
+    visibility visible
+    width auto
+    height auto
     opacity 1
