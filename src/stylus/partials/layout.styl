@@ -6,6 +6,8 @@ body, html, main
   width 50%
 .three-col
   width 33.33%
+.three-col-two
+  width 66.66%
 .four-col
   width 25%
 .four-col-three
@@ -51,12 +53,11 @@ body, html, main
 #doorsnede
   background-color lightgrey
 .logo, .logo-drop
-  max-width 20%
+  width 20%
   position absolute
   left 50%
   top 55%
   transform translate(-50%, -50%)
-  width: 100%
   z-index 2
   
 .loader .logo svg{
@@ -93,8 +94,10 @@ body, html, main
   background-color yellow
   border-radius 100%
 
-.svgContainer
-  padding 0 medium-percentage
+.svgContainerRight
+  padding 0 medium-percentage 0 0
+.svgContainerLeft
+  padding 0 0 0 medium-percentage
 
 .full-height
   height 100%

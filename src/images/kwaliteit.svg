@@ -1421,7 +1421,7 @@
 			C194,60.2,193.7,59.9,193.4,59.6z"/>
 	</g>
 </g>
-<g id="icon-bacterien" class="clickable" data-highlight="#industrie,#icon-industrie,#icon-stedelijk,#stedelijk">
+<g id="icon-bacterien" class="clickable" data-highlight="#industrie,#icon-industrie,#icon-stedelijk,#stedelijk,#bacterien-text">
 	<text transform="matrix(1 0 0 1 53.914 11.8855)" fill="#F15A22" font-family="'AvenirNext-Bold'" font-size="12">BACTERIEN</text>
 	<g>
 		<circle fill="none" stroke="#F15A22" stroke-width="2.8347" stroke-miterlimit="10" cx="90.4" cy="50.3" r="23.2"/>
