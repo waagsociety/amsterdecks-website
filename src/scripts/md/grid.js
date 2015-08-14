@@ -213,7 +213,9 @@ function Grid(options){
 		this.setT(this.T + dt);
 	};
 	this.setT = function(T){
-		var maxLength = this.variant.length;
+		var maxLength = this.variant.length,
+			cT = this.floorT;
+
 		while(T >= maxLength){
 			// loop it back
 			T -= this.variant.length;
@@ -230,6 +232,8 @@ function Grid(options){
 		}
 
 		this.t = T % 1;
+
+		if(cT !== this.floorT && this.onTChange) this.onTChange(this.floorT);
 	};
 	this.nextVariant = function(variant){
 		var newVariant;

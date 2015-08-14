@@ -112,6 +112,17 @@ function initMotionDisplays(){
     }
   }
 
+  var high = true,
+      reversalT = 9;
+
+  var extraMethods = {
+    brouwersgracht: function(motionDisplay){
+      motionDisplay.grid.onTChange = function(T){
+        if(!T || T === 9) document.querySelector('.spui .hoog').classList.toggle('active');
+      };
+    }
+  };
+
   function loadMotionDisplay(field){
     var name = field.name;
 
@@ -120,6 +131,8 @@ function initMotionDisplays(){
     loadField(name, document.querySelector(field.parent), function(motionDisplay){
       activeMotionDisplays[name] = motionDisplay;
       document.body.dispatchEvent(new Event('loadedMotionDisplay:' + name));
+
+      if(extraMethods[name]) extraMethods[name](motionDisplay);
     });
   }
 
