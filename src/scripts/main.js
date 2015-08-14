@@ -140,7 +140,7 @@ function initMotionDisplays(){
 
   assignFieldTrigger('#splashflow', [{ name: 'gr-amsterdam', parent: '#splashflow' }]);
   assignFieldTrigger('#overstortenContainer', [{ name: 'overstorten', parent: '#overstortenContainer' }]);
-//  assignFieldTrigger('#stromingRijn', [{ name: 'zuurstof-amstel', parent: '#stromingRijn' }]);
+  assignFieldTrigger('#stromingFlowContainer', [{ name: 'brouwersgracht', parent: '#stromingFlowContainer' }]);
 //  assignFieldTrigger('#stromingRijn', 'watermartin');
 //  assignFieldTrigger('#stromingCenter', 'gr-amsterdam');
 }

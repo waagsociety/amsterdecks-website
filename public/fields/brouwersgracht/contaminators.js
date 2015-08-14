@@ -1,0 +1,1 @@
+contaminatorSets['brouwersgracht'] = { size: 0, contaminators: [] };
