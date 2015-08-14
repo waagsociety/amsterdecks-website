@@ -139,7 +139,7 @@ function initMotionDisplays(){
   }
 
   assignFieldTrigger('#splashflow', [{ name: 'gr-amsterdam', parent: '#splashflow' }]);
-//  assignFieldTrigger('#overstortenFlow', [{ name: 'overstorten', parent: '#overstortenFlow' }]);
+  assignFieldTrigger('#overstortenContainer', [{ name: 'overstorten', parent: '#overstortenContainer' }]);
 //  assignFieldTrigger('#stromingRijn', [{ name: 'zuurstof-amstel', parent: '#stromingRijn' }]);
 //  assignFieldTrigger('#stromingRijn', 'watermartin');
 //  assignFieldTrigger('#stromingCenter', 'gr-amsterdam');
@@ -182,18 +182,6 @@ function rioolMenuClick(){
   $(this).toggleClass('active');  
   $('.regenOverstort').toggleClass('active');
   $('.droogOverstort').toggleClass('active');
-}
-
-function kwaliteitElementClick(e){
-  Array.prototype.forEach.call(document.querySelectorAll('#kwaliteit .clickable'), function(elem){
-    elem.classList.remove('active');
-  });
-  
-  e.currentTarget.dataset.highlight.split(',').forEach(function(selector){
-    document.querySelector(selector).classList.add('active');
-  });
-  $('#kwaliteit .clickable').removeClass('active');
-  e.currentTarget.classList.add('active');
 }
 
 function kwaliteitElementClick(e){
