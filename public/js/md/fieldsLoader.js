@@ -10,6 +10,14 @@ function fieldsLoader(name, cb){
     	total = fieldFilenames.length,
     	done = 0;
 
+    window.fieldsCache = window.fieldsCache || {};
+    
+    if(fieldsCache[name]){
+    	return cb(null, fieldsCache[name]);
+    }
+
+    fieldsCache[name] = fields;
+
   	Object.defineProperty(fields, 'meta', { value: fieldInfo.meta });
 
 	fieldFilenames.forEach(function(filename){

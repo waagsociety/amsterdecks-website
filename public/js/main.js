@@ -196,11 +196,11 @@ function kwaliteitElementClick(e){
   Array.prototype.forEach.call(document.querySelectorAll('#kwaliteit .clickable'), function(elem){
     elem.classList.remove('active');
   });
+  $('#qualityTextContainer div').removeClass('active');
   
   e.currentTarget.dataset.highlight.split(',').forEach(function(selector){
     document.querySelector(selector).classList.add('active');
   });
-  $('#kwaliteit .clickable').removeClass('active');
   e.currentTarget.classList.add('active');
 }
 
