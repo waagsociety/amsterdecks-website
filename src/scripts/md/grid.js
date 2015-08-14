@@ -31,7 +31,7 @@ function Grid(options){
 	this.contaminators = options.contaminatorInfo.contaminators;
 
 	this.spawnArray = options.spawnArray || this.createSpawnArrayAndContaminatorPositions();
-	this.contaminants = options.contaminants || {};
+	this.contaminants = this.contaminants || options.contaminants || {};
 }
 (function(){
 	this.getLocalV = function(x, y){
