@@ -128,7 +128,7 @@ function initMotionDisplays(){
     },
     overstorten: function(motionDisplay){
       motionDisplay.createLeafletUnderlay({
-        leafletTileUrl: 'http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+        leafletTileUrl: 'http://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png',
         leafletTileAttribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
       });
     }
