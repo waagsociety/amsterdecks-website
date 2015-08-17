@@ -358,10 +358,10 @@ function MotionDisplay(options){
 		canvas.parentNode.insertBefore(leafletContainerContainer, canvas.parentNode.firstChild);
 		canvas.style.position = 'absolute';
 
-		var leafletTileUrl = options.leafletTileUrl || 'http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+		var leafletTileUrl = options.leafletTileUrl || 'http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',
     		leafletTileAttribution = options.leafletTileAttribution || '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>';
 
-		var osm = L.tileLayer(leafletTileUrl, { attribution: leafletTileAttribution, zoomControl: false }),
+		var osm = L.tileLayer(leafletTileUrl, { maxZoom: 18, attribution: leafletTileAttribution }),
 			map = L.map('leafletcontainer', {
 				layers: [osm]
 			}).fitBounds([
