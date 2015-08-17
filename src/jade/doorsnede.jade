@@ -10,11 +10,31 @@ section#doorsnede.left.medium-padding-top
   .four-col.left.small-padding-side
     ul.doorsnedeNav
       li.doorsnede-button.active(data-name="droog") Droog
-      li.doorsnede-button(data-name="droog-opwoeling") Opwoeling
-      li.doorsnede-button(data-name="droog-woonboot") Woonboot
+      li.doorsnede-button(data-name="droog-opwoeling" data-showit="#opwoeling-story") Opwoeling
+      li.doorsnede-button(data-name="droog-woonboot" data-showit="#woonboot-story") Woonboot
       li.doorsnede-button(data-name="rain") Regen
-      li.doorsnede-button(data-name="rain-overstort") Overstort
-      li.doorsnede-button(data-name="rain-uitspoeling") Uitspoeling
+      li.doorsnede-button(data-name="rain-overstort" data-showit="#overstort-story") Overstort
+      li.doorsnede-button(data-name="rain-uitspoeling" data-showit="#uitspoeling-story") Uitspoeling
     h1 Stadsdoorsnede
     p.
-      We nemen vaak voor lief dat de stad functioneert. Pas als het mis gaat, worden kritische vragen gesteld. Gelukkig hebben we in Nederland, en met name in  Amsterdam, een zeer hoge standaard als het gaat om watermanagement. Deze stadsdoorsnede combineert wat je ziet met wat je normaal niet ziet.  
+      We nemen vaak voor lief dat de stad functioneert. Pas als het mis gaat, worden kritische vragen gesteld. Gelukkig hebben we in Nederland, en met name in  Amsterdam, een zeer hoge standaard als het gaat om watermanagement. Deze stadsdoorsnede combineert wat je ziet met wat je normaal niet ziet.
+    
+    .doorsnede-text-container
+      #overstort-story.text-view
+        h1 Overstort
+        p.
+          Tijdens heftige regenval kan het riool stelsel niet altijd het volume aan. In dit loopt het rioolwater via een overstort het water in.
+        p.
+          Zo’n overstort situatie gebeurt ongeveer 10 keer per jaar. Helaas gebeurt dit voornamelijk tijdens zomerbuien, wanneer het systeem ineens enorme hoeveelheden moet verwerken.  
+      #woonboot-story.text-view.active
+        h1 Woonboot
+        p.
+          Voor lange tijd loosde woonboten direct op de grachten. De afgelopen jaren is er actief beleid gevoerd om deze te koppelen aan het riool. Op dit moment (zomer 2025) zijn er al 2000 boten op het riool aangesloten wat nog 450 boten overlaat om aan te sluiten.  
+      #opwoeling-story.text-view
+        h1 Omwoeling
+        p.
+          De diepte van het water in Amsterdam varieert va 2 tot 4 meter diepte. Waneer boten met grote schroeven door het water varen woelen ze de bodem om. Dit zorgt voor troebelheid, waardoor licht wordt geblokkeerd. Daarnaast liggen op de bodem vaak verontreinigingen. Op de bodem zijn ze zo goed als schadeloos, maar na opwoeling  vormen ze weer een risico. 
+      #uitspoeling-story.text-view
+        h1 Uitspoeling
+        p.
+          Oppervlak water stroomt voor een deel het riool in. Een ander deel stroomt direct het water in. Deze verontreiniging bevat vaak zware metalen, drijfvuil, organisch materiaal. Het type grondgebruik geeft vaak wel een typische soort uitspoeling. In stedelijke gebieden vind je bijvoorbeeld meer zware metalen en drijfafval, en in agrarisch land meer nutriënten en pesticiden. 

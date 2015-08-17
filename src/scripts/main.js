@@ -238,9 +238,19 @@ function doorsnedeViewActivate(e){
   var name = e.currentTarget.dataset.name,
       viewContainer = document.getElementById("doorsnedeContainer"),
       mainContainer = document.getElementById("doorsnede"),
-      view = document.createElement("div");
+      view = document.createElement("div"),
+      currentlyActiveButton = document.querySelector('.doorsnedeNav li.active'),
+      currentlyActiveStory = document.querySelector('.doorsnede-text-container div.active'),
+      showit = e.currentTarget.dataset.showit;
   
-  document.querySelector('.doorsnedeNav li.active').classList.remove('active');
+  if(currentlyActiveButton) currentlyActiveButton.classList.remove('active');
+  if(currentlyActiveStory) currentlyActiveStory.classList.remove('active');
+  
+  if(showit) showit.split(',').forEach(function(selector){
+    console.log(selector);
+    document.querySelector(selector).classList.add('active');
+  });
+  
   e.currentTarget.classList.add('active');
   
   viewContainer.innerHTML = "";
