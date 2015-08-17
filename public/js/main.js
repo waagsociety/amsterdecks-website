@@ -17,12 +17,7 @@ function removeLoader(){
   $('body').removeClass('loading');
   $('.loader').remove();
 };
-
 document.body.addEventListener('loadedMotionDisplay:gr-amsterdam', removeLoader);
-
-//setTimeout(removeLoader, 5000);
-// var s = skrollr.init({forceHeight: false});
-
 
 function hideNavigation(){
   document.getElementById('menuContainer').style.transform = "translateY(-100%)"; 
@@ -154,8 +149,6 @@ function initMotionDisplays(){
   assignFieldTrigger('#splashflow', [{ name: 'gr-amsterdam', parent: '#splashflow' }]);
   assignFieldTrigger('#overstortenContainer', [{ name: 'overstorten', parent: '#overstortenContainer' }]);
   assignFieldTrigger('#stromingFlowContainer', [{ name: 'brouwersgracht', parent: '#stromingFlowContainer' }]);
-//  assignFieldTrigger('#stromingRijn', 'watermartin');
-//  assignFieldTrigger('#stromingCenter', 'gr-amsterdam');
 }
 
 
@@ -178,6 +171,11 @@ function documentReady() {
     jQuery('.systeemNav').addClass("hidden").viewportChecker({
         classToAdd: 'visible animated fadeInUp',
         offset: -50,
+        repeat: true
+       });
+    jQuery('.intro-text, .three-col, .four-col').addClass("hidden").viewportChecker({
+        classToAdd: 'visible animated fadeIn',
+        offset: 100,
         repeat: true
        });
 }

@@ -75,25 +75,21 @@ body, html, main
   left 0
   top 0
   
-
-  
 .loader .logo  svg #stripe
   animation-name myOpacity
   animation-duration 15s
   animation-iteration-count infinite
   transform-origin left center
-    
+  transform: scale(0, 1)
+  
 @keyframes myOpacity {
   from {
     transform: scale(0, 1)
-    opacity: 0
   }
   to {
     transform: scale(1, 1)
-    opacity: 1
   }
 }
-
 .contaminator-container
   position absolute
   top 0
