@@ -11,17 +11,29 @@
     img10 = new Image();
     img11 = new Image();
     img12 = new Image();
-
-    img1.src = "public/images/clean_small.jpg";
-    img2.src = "public/images/aerial_all_small.jpg";
-    img3.src = "public/images/agri_small.jpg";
-    img4.src = "public/images/overstorts_small.jpg";
-    img5.src = "public/images/spui_small.jpg";
-    img6.src = "public/images/rzwi_small.jpg";
-    img7.src = "public/images/doorsnede_droog.jpg";
-    img8.src = "public/images/doorsnede_droog_opwoeling.jpg";
-    img9.src = "public/images/doorsnede_droog_woonboot.jpg";
-    img10.src = "public/images/doorsnede_rain_overstort.jpg";
-    img11.src = "public/images/doorsnede_rain_uitspoeling.jpg";
-    img12.src = "public/images/doorsnede_rain.jpg";
+    img13 = new Image();
+    img14 = new Image();
+    img15 = new Image();
+    img16 = new Image();
+    img17 = new Image();
+    img18 = new Image();
+        
+    img1.src = "public/images/amstel_view.jpg";
+    img2.src = "public/images/stroomgebied.jpg";
+    img3.src = "public/images/clean_small.jpg";
+    img4.src = "public/images/aerial_all_small.jpg";
+    img5.src = "public/images/agri_small.jpg";
+    img6.src = "public/images/overstorts_small.jpg";
+    img7.src = "public/images/spui_small.jpg";
+    img8.src = "public/images/rzwi_small.jpg";
+    img9.src = "public/images/uitspoeling.jpg";
+    img10.src = "public/images/spui_hoog.jpg";
+    img11.src = "public/images/spui_laag.jpg";
+    img12.src = "public/images/doorsnede_droog.jpg";
+    img13.src = "public/images/doorsnede_droog_opwoeling.jpg";
+    img14.src = "public/images/doorsnede_droog_woonboot.jpg";
+    img15.src = "public/images/doorsnede_rain_overstort.jpg";
+    img16.src = "public/images/doorsnede_rain_uitspoeling.jpg";
+    img17.src = "public/images/doorsnede_rain.jpg";
+    img18.src = "public/images/overstorten_bg.jpg";
   }
