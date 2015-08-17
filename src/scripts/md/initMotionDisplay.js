@@ -41,6 +41,7 @@ function loadField(name, element, cb){
 			backgroundColor: settings.backgroundColor,
 			trailLength: settings.trailLength,
 			timeStep: settings.timeStep,
+			minFPS: settings.minFPS
 		});
 		
 		motionDisplay.container && element.appendChild(motionDisplay.container);

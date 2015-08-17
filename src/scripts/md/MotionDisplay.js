@@ -49,6 +49,10 @@ function MotionDisplay(options){
 		this.createContaminatorElements();
 	}
 
+	if(options.minFPS){
+		this.minTimeTaken = 1000 / options.minFPS;
+	}
+
 	this.createParticles();
 
 	var pauseOrResume = this.pauseOrResume = function(e){
@@ -145,6 +149,10 @@ function MotionDisplay(options){
 			newTime = Date.now(),
 			dt = newTime - this.lastStep;
 			//fade = 5; //this.fade || 0.96;
+
+		if(dt > this.minTimeTaken){
+			this.particles = this.particles.slice( 0, Math.floor( this.particles.length * ( this.minTimeTaken / dt ) ) );
+		}
 
 		this.lastStep = newTime;
 
@@ -358,10 +366,10 @@ function MotionDisplay(options){
 		canvas.parentNode.insertBefore(leafletContainerContainer, canvas.parentNode.firstChild);
 		canvas.style.position = 'absolute';
 
-		var leafletTileUrl = options.leafletTileUrl || 'http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',
+		var leafletTileUrl = options.leafletTileUrl || 'http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
     		leafletTileAttribution = options.leafletTileAttribution || '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>';
 
-		var osm = L.tileLayer(leafletTileUrl, { maxZoom: 18, attribution: leafletTileAttribution }),
+		var osm = L.tileLayer(leafletTileUrl, { attribution: leafletTileAttribution, zoomControl: false }),
 			map = L.map('leafletcontainer', {
 				layers: [osm]
 			}).fitBounds([

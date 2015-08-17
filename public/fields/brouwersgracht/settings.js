@@ -5,5 +5,6 @@ fieldSettings['brouwersgracht'] = {
 	particleSpeed: 3,
 	particleDensity: 0.45,
 	particleMaxAge: 500,
-	timeStep: 18/18
+	timeStep: 18/18,
+  minFPS: 5
 };
