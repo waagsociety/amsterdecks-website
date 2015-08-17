@@ -3,7 +3,7 @@ fieldSettings['overstorten'] = {
 	backgroundColor: 'rgb(0,132,168)',
 	trailLength: 1,
 	particleSpeed: 100,
-	particleDensity: 0.3,
+	particleDensity: 0.1,
 	particleMaxAge: 1200,
 	timeStep: 18/7
 };
