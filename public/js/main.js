@@ -17,7 +17,12 @@ function removeLoader(){
   $('body').removeClass('loading');
   $('.loader').remove();
 };
-document.body.addEventListener('loadedMotionDisplay:gr-amsterdam', removeLoader);
+
+if(!document.body.scrollTop){
+  document.body.addEventListener('loadedMotionDisplay:gr-amsterdam', removeLoader);
+} else {
+  removeLoader();
+}
 
 function hideNavigation(){
   document.getElementById('menuContainer').style.transform = "translateY(-100%)"; 
