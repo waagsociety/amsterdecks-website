@@ -1,6 +1,6 @@
 fieldSettings['brouwersgracht'] = {
-	particleColor: 'rgb(171,203,216)',
-	backgroundColor: 'rgb(0,132,168)',
+	particleColor: 'rgb(223,224,226)',
+	backgroundColor: 'rgb(223,224,226)',
 	trailLength: 1,
 	particleSpeed: 3,
 	particleDensity: 0.45,
