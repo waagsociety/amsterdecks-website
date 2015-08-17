@@ -332,7 +332,9 @@ function MotionDisplay(options){
 			ctx.lineTo(path[0][0], path[0][1]);
 		}
 	};
-	this.createLeafletUnderlay = function(){
+	this.createLeafletUnderlay = function(options){
+		options = options || {};
+
 		var canvas = this.canvas,
 			canvasStyle = canvas.style,
 			width = canvasStyle.width,
@@ -356,6 +358,9 @@ function MotionDisplay(options){
 		canvas.parentNode.insertBefore(leafletContainerContainer, canvas.parentNode.firstChild);
 		canvas.style.position = 'absolute';
 
+		var leafletTileUrl = options.leafletTileUrl || 'http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',
+    		leafletTileAttribution = options.leafletTileAttribution || '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>';
+
 		var osm = L.tileLayer(leafletTileUrl, { maxZoom: 18, attribution: leafletTileAttribution }),
 			map = L.map('leafletcontainer', {
 				layers: [osm]
@@ -374,22 +379,6 @@ function MotionDisplay(options){
 			scale = [resultDeltas[0] / mdDeltas[0], resultDeltas[1] / mdDeltas[1]];
 
 		leafletContainer.style.transform = 'scale(' + scale[0] + ',' + scale[1] + ')';
-
-		var boundsDifferences = [
-				[
-					resultBounds[0][0] - this.bounds[0][0],
-					resultBounds[0][1] - this.bounds[0][1]
-				], [
-					resultBounds[1][0] - this.bounds[1][0],
-					resultBounds[1][1] - this.bounds[1][1]
-				]
-			];
-
-		console.log(boundsDifferences);
-
-		//console.log(this.bounds[0][0], fit(resultBounds[0][0],))
-
-		window.debugmap = map;
 	}
 }).call(MotionDisplay.prototype);
 
