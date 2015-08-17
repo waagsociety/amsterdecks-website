@@ -74,19 +74,22 @@ body, html, main
   fill canvas
   left 0
   top 0
-
-.loader
-  #drop
-    animation-name mymove
-    animation-duration 4s
-    animation-iteration-count infinite
-    transition all .2s ease-out
-    
-@keyframes mymove {
-    from {top: 0px;}
-    to {top: 600px;}
+  
+.loader .logo  svg #stripe
+  animation-name myOpacity
+  animation-duration 15s
+  animation-iteration-count infinite
+  transform-origin left center
+  transform: scale(0, 1)
+  
+@keyframes myOpacity {
+  from {
+    transform: scale(0, 1)
+  }
+  to {
+    transform: scale(1, 1)
+  }
 }
-
 .contaminator-container
   position absolute
   top 0
