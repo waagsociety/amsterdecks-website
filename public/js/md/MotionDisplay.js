@@ -7,6 +7,7 @@ function MotionDisplay(options){
   	this.xScale = this.width * pixelRatio / this.grid.width;
   	this.yScale = this.height * pixelRatio / this.grid.height;
   	this.scale = ipl(this.xScale, this.yScale, 0.5);
+  	this.bounds = options.bounds;
   
 	this.canvas = document.createElement('canvas');
 	this.canvas.setAttribute('width', Math.floor(this.width * pixelRatio));
@@ -331,6 +332,65 @@ function MotionDisplay(options){
 			ctx.lineTo(path[0][0], path[0][1]);
 		}
 	};
+	this.createLeafletUnderlay = function(){
+		var canvas = this.canvas,
+			canvasStyle = canvas.style,
+			width = canvasStyle.width,
+			height = canvasStyle.height,
+			leafletContainerContainer = document.createElement('div'),
+			leafletContainer = document.createElement('div'),
+			leafletContainerContainerStyle = leafletContainerContainer.style;
+
+		leafletContainerContainerStyle.width = width;
+		leafletContainerContainerStyle.height = height
+		leafletContainerContainerStyle.position = 'absolute';
+		leafletContainerContainerStyle.top = 0;
+		leafletContainerContainerStyle.left = 0;
+		leafletContainerContainerStyle.overflow = 'hidden';
+		
+		leafletContainer.id = 'leafletcontainer';
+		leafletContainer.style.width = width;
+		leafletContainer.style.height = height
+
+		leafletContainerContainer.appendChild(leafletContainer);
+		canvas.parentNode.insertBefore(leafletContainerContainer, canvas.parentNode.firstChild);
+		canvas.style.position = 'absolute';
+
+		var osm = L.tileLayer(leafletTileUrl, { maxZoom: 18, attribution: leafletTileAttribution }),
+			map = L.map('leafletcontainer', {
+				layers: [osm]
+			}).fitBounds([
+				[ this.bounds[0][1], this.bounds[0][0] ],
+				[ this.bounds[1][1], this.bounds[1][0] ]
+			], { padding: [ 0, 0 ] });
+
+		var resultBounds = map.getBounds();
+
+		//transform to own format
+		resultBounds = [[resultBounds.getWest(), resultBounds.getSouth()], [resultBounds.getEast(), resultBounds.getNorth()]];
+
+		var resultDeltas = [resultBounds[1][0] - resultBounds[0][0], resultBounds[1][1] - resultBounds[0][1]],
+			mdDeltas = [this.bounds[1][0] - this.bounds[0][0], this.bounds[1][1] - this.bounds[0][1]],
+			scale = [resultDeltas[0] / mdDeltas[0], resultDeltas[1] / mdDeltas[1]];
+
+		leafletContainer.style.transform = 'scale(' + scale[0] + ',' + scale[1] + ')';
+
+		var boundsDifferences = [
+				[
+					resultBounds[0][0] - this.bounds[0][0],
+					resultBounds[0][1] - this.bounds[0][1]
+				], [
+					resultBounds[1][0] - this.bounds[1][0],
+					resultBounds[1][1] - this.bounds[1][1]
+				]
+			];
+
+		console.log(boundsDifferences);
+
+		//console.log(this.bounds[0][0], fit(resultBounds[0][0],))
+
+		window.debugmap = map;
+	}
 }).call(MotionDisplay.prototype);
 
 function enrichContext(ctx){

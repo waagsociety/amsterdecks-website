@@ -115,6 +115,8 @@ function initMotionDisplays(){
       motionDisplay.grid.onTChange = function(T){
         if(!T || T === 9) document.querySelector('.spui .hoog').classList.toggle('active');
       };
+
+      motionDisplay.createLeafletUnderlay();
     }
   };
 

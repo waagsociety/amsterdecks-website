@@ -33,13 +33,14 @@ function loadField(name, element, cb){
 			gridOptions: importedGridOptions,
 			width: Math.floor(importedGridOptions.width * scale),
 			height: Math.floor(importedGridOptions.height * scale),
+			bounds: fieldInfo.bounds,
 			clipPath: clipPaths[name],
 			contaminatorInfo: contaminatorSets[name],
 			particleColor: settings.particleColor,
 			particleDensity: settings.particleDensity,
 			backgroundColor: settings.backgroundColor,
 			trailLength: settings.trailLength,
-			timeStep: settings.timeStep
+			timeStep: settings.timeStep,
 		});
 		
 		motionDisplay.container && element.appendChild(motionDisplay.container);
