@@ -49,6 +49,10 @@ function MotionDisplay(options){
 		this.createContaminatorElements();
 	}
 
+	if(options.minFPS){
+		this.minTimeTaken = 1000 / options.minFPS;
+	}
+
 	this.createParticles();
 
 	var pauseOrResume = this.pauseOrResume = function(e){
@@ -145,6 +149,10 @@ function MotionDisplay(options){
 			newTime = Date.now(),
 			dt = newTime - this.lastStep;
 			//fade = 5; //this.fade || 0.96;
+
+		if(dt > this.minTimeTaken){
+			this.particles = this.particles.slice( 0, Math.floor( this.particles.length * ( this.minTimeTaken / dt ) ) );
+		}
 
 		this.lastStep = newTime;
 
