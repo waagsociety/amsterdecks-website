@@ -31,3 +31,17 @@ script(src="public/js/md/initMotionDisplay.js")
 script(src="public/js/jquery.viewportchecker.js")
 script(src="public/js/main.js")
 //- endinject
+
+script.
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//stats.waag.org/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', 4]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+noscript
+  img(src="//stats.waag.org/piwik.php?idsite=4" style="border:0;" alt="")
