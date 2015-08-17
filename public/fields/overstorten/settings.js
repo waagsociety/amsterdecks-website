@@ -1,6 +1,6 @@
 fieldSettings['overstorten'] = {
-	particleColor: 'rgb(255,255,255)',
-	backgroundColor: 'rgb(0,132,168)',
+	particleColor: 'rgb(150,150,150)',
+	backgroundColor: 'rgb(7,5,17)',
 	trailLength: 1,
 	particleSpeed: 100,
 	particleDensity: 0.1,

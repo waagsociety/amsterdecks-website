@@ -17,7 +17,12 @@ function removeLoader(){
   $('body').removeClass('loading');
   $('.loader').remove();
 };
-document.body.addEventListener('loadedMotionDisplay:gr-amsterdam', removeLoader);
+
+if(!document.body.scrollTop){
+  document.body.addEventListener('loadedMotionDisplay:gr-amsterdam', removeLoader);
+} else {
+  removeLoader();
+}
 
 function hideNavigation(){
   document.getElementById('menuContainer').style.transform = "translateY(-100%)"; 
@@ -115,6 +120,17 @@ function initMotionDisplays(){
       motionDisplay.grid.onTChange = function(T){
         if(!T || T === 9) document.querySelector('.spui .hoog').classList.toggle('active');
       };
+
+      motionDisplay.createLeafletUnderlay({
+        leafletTileUrl: 'http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+        leafletTileAttribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
+      });
+    },
+    overstorten: function(motionDisplay){
+      motionDisplay.createLeafletUnderlay({
+        leafletTileUrl: 'http://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png',
+        leafletTileAttribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
+      });
     }
   };
 
