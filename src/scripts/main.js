@@ -121,7 +121,16 @@ function initMotionDisplays(){
         if(!T || T === 9) document.querySelector('.spui .hoog').classList.toggle('active');
       };
 
-      motionDisplay.createLeafletUnderlay();
+      motionDisplay.createLeafletUnderlay({
+        leafletTileUrl: 'http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+        leafletTileAttribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
+      });
+    },
+    overstorten: function(motionDisplay){
+      motionDisplay.createLeafletUnderlay({
+        leafletTileUrl: 'http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+        leafletTileAttribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
+      });
     }
   };
 
