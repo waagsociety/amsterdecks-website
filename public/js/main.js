@@ -18,11 +18,14 @@ function removeLoader(){
   $('.loader').remove();
 };
 
+var oldBrowser = true;
 if(!document.body.scrollTop){
-  document.body.addEventListener('loadedMotionDisplay:gr-amsterdam', removeLoader);
+  if(!oldBrowser) document.body.addEventListener('loadedMotionDisplay:gr-amsterdam', removeLoader);
 } else {
   removeLoader();
 }
+
+setTimeout(removeLoader, 10000);
 
 function hideNavigation(){
   document.getElementById('menuContainer').style.transform = "translateY(-100%)"; 
@@ -184,16 +187,11 @@ $('#doorsnede .doorsnede-button').on({
 });
 
 function documentReady() {
-    jQuery('.systeemNav').addClass("hidden").viewportChecker({
-        classToAdd: 'visible animated fadeInUp',
-        offset: -50,
-        repeat: true
-       });
-    jQuery('.intro-text, .three-col, .four-col').addClass("hidden").viewportChecker({
-        classToAdd: 'visible animated fadeIn',
-        offset: 100,
-        repeat: true
-       });
+  jQuery('.systeemNav').addClass("hidden").viewportChecker({
+    classToAdd: 'visible animated fadeInUp',
+    offset: -50,
+    repeat: true
+   });
 }
 
 function titleSubLinkClick() {
