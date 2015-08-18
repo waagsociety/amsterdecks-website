@@ -288,8 +288,8 @@ function MotionDisplay(options){
 				v = grid.getLocalV(x / xScale, y / yScale);
 				angle = Math.atan2(v[1], v[0]);
 
-				if(angle < 0) angle += τ;
-				rgb = hslToRgb(angle / τ, 1, Math.sqrt(Math.pow(v[0], 2) + Math.pow(v[1], 2)) / maxSpd / 2);
+				if(angle < 0) angle += tau;
+				rgb = hslToRgb(angle / tau, 1, Math.sqrt(Math.pow(v[0], 2) + Math.pow(v[1], 2)) / maxSpd / 2);
 
 				data[idx] = rgb[0];
 				data[idx + 1] = rgb[1];
@@ -397,6 +397,6 @@ function MotionDisplay(options){
 
 function enrichContext(ctx){
 	ctx.circle = function(x, y, radius){
-		ctx.arc(x, y, radius, 0, τ, true);
+		ctx.arc(x, y, radius, 0, tau, true);
 	}
 }
