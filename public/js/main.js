@@ -18,7 +18,7 @@ function removeLoader(){
   $('.loader').remove();
 };
 
-var oldBrowser = true;
+var oldBrowser = false;
 if(!document.body.scrollTop){
   if(!oldBrowser) document.body.addEventListener('loadedMotionDisplay:gr-amsterdam', removeLoader);
 } else {

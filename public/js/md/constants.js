@@ -1,4 +1,4 @@
-var τ = 2 * Math.PI,
+var tau = 2 * Math.PI,
 	clipPaths = {},
 	contaminatorSets = {},
 	fieldInfos = {},
