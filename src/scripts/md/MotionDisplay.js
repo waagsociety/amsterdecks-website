@@ -349,7 +349,8 @@ function MotionDisplay(options){
 			height = canvasStyle.height,
 			leafletContainerContainer = document.createElement('div'),
 			leafletContainer = document.createElement('div'),
-			leafletContainerContainerStyle = leafletContainerContainer.style;
+			leafletContainerContainerStyle = leafletContainerContainer.style,
+			leafletContainerStyle = leafletContainer.style;
 
 		leafletContainerContainerStyle.width = width;
 		leafletContainerContainerStyle.height = height
@@ -359,8 +360,8 @@ function MotionDisplay(options){
 		leafletContainerContainerStyle.overflow = 'hidden';
 		
 		leafletContainer.id = 'leafletcontainer';
-		leafletContainer.style.width = width;
-		leafletContainer.style.height = height
+		leafletContainerStyle.width = width;
+		leafletContainerStyle.height = height
 
 		leafletContainerContainer.appendChild(leafletContainer);
 		canvas.parentNode.insertBefore(leafletContainerContainer, canvas.parentNode.firstChild);
@@ -384,9 +385,13 @@ function MotionDisplay(options){
 
 		var resultDeltas = [resultBounds[1][0] - resultBounds[0][0], resultBounds[1][1] - resultBounds[0][1]],
 			mdDeltas = [this.bounds[1][0] - this.bounds[0][0], this.bounds[1][1] - this.bounds[0][1]],
-			scale = [resultDeltas[0] / mdDeltas[0], resultDeltas[1] / mdDeltas[1]];
+			scale = [resultDeltas[0] / mdDeltas[0], resultDeltas[1] / mdDeltas[1]],
+			scaleValue = 'scale(' + scale[0] + ',' + scale[1] + ')';
 
-		leafletContainer.style.transform = 'scale(' + scale[0] + ',' + scale[1] + ')';
+		leafletContainerStyle['transform'] = scaleValue;
+		leafletContainerStyle['-ms-transform'] = scaleValue;
+		leafletContainerStyle['-webkit-transform'] = scaleValue;
+		leafletContainerStyle['-moz-transform'] = scaleValue;
 	}
 }).call(MotionDisplay.prototype);
 
