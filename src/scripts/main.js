@@ -1,18 +1,3 @@
-$(function() {
-  $('a[href*=#]:not([href=#])').click(function() {
-    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-      var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-      if (target.length) {
-        $('html,body').animate({
-          scrollTop: target.offset().top
-        }, 1000);
-        return false;
-      }
-    }
-  });
-});
-
 function removeLoader(){
   $('body').removeClass('loading');
   $('.loader').remove();
@@ -186,12 +171,29 @@ $('#doorsnede .doorsnede-button').on({
   click: doorsnedeViewActivate
 });
 
+$('#systeem #arialNav li').on('click', systemViewClick)
+
 function documentReady() {
-  jQuery('.systeemNav').addClass("hidden").viewportChecker({
+  $('.systeemNav').addClass("hidden").viewportChecker({
     classToAdd: 'visible animated fadeInUp',
     offset: -50,
     repeat: true
    });
+
+  $('a[href*=#]:not([href=#])').click(localHashClick);
+}
+
+function localHashClick() {
+  if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+    var target = $(this.hash);
+    target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+    if (target.length) {
+      $('html,body').animate({
+        scrollTop: target.offset().top
+      }, 1000);
+      return false;
+    }
+  }
 }
 
 function titleSubLinkClick() {
@@ -221,10 +223,18 @@ function kwaliteitElementClick(e){
   e.currentTarget.classList.add('active');
 }
 
-function systemView(name){
-  var viewContainer = document.getElementById("aerialViewContainer"),
+function systemViewClick(e){
+  var name = e.currentTarget.dataset.name,
+      viewContainer = document.getElementById("aerialViewContainer"),
       mainContainer = document.getElementById("systeem"),
       view = document.createElement("div");
+  
+
+  if(mainContainer.classList.contains(name)) {
+    mainContainer.classList.remove(name);
+    $('#aerialViewContainer .view')[0].className = 'view arialClean';
+    return;
+  }
   
   viewContainer.innerHTML = "";
   mainContainer.className = "page page-3 left big-padding " + name;
@@ -240,12 +250,12 @@ function doorsnedeViewActivate(e){
       currentlyActiveButton = document.querySelector('.doorsnedeNav li.active'),
       currentlyActiveStory = document.querySelector('.doorsnede-text-container div.active'),
       showit = e.currentTarget.dataset.showit;
+
   
   if(currentlyActiveButton) currentlyActiveButton.classList.remove('active');
   if(currentlyActiveStory) currentlyActiveStory.classList.remove('active');
   
   if(showit) showit.split(',').forEach(function(selector){
-    console.log(selector);
     document.querySelector(selector).classList.add('active');
   });
   
