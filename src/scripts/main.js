@@ -10,6 +10,8 @@ if(!document.body.scrollTop){
   removeLoader();
 }
 
+navigation();
+
 setTimeout(removeLoader, 10000);
 
 function hideNavigation(){
@@ -27,26 +29,27 @@ function navigation(){
 //      subMenuHeight = subMenu.offsetHeight,
       mainMenuHeight = mainMenu.offsetHeight;
   
-  $('body').bind('DOMMouseScroll', function(e){
-     if(e.originalEvent.detail > 0) {
-         //scroll down
-         console.log('Down');
-     }else {
-         //scroll up
-         console.log('Up');
-     }
-  });
+  // $('body').bind('DOMMouseScroll', function(e){
+  //    if(e.originalEvent.detail > 0) {
+  //        //scroll down
+  //        console.log('Down');
+  //    }else {
+  //        //scroll up
+  //        console.log('Up');
+  //    }
+  // });
 
   //IE, Opera, Safari
-  $('body').bind('mousewheel', function(e){
-     if(e.originalEvent.wheelDelta < 0) {
-        hideNavigation();
-     }else {
-        showNavigation();
-     }
-  });
+  $('body').bind('mousewheel', mousewheel);
 }
-navigation();
+
+function mousewheel(e){
+   if(e.originalEvent.wheelDelta < 0) {
+      hideNavigation();
+   }else {
+      showNavigation();
+   }
+}
 
 function initMotionDisplays(){
   var activeMotionDisplayNames = [],
@@ -106,7 +109,9 @@ function initMotionDisplays(){
   var extraMethods = {
     brouwersgracht: function(motionDisplay){
       motionDisplay.grid.onTChange = function(T){
-        if(!T || T === 9) document.querySelector('.spui .hoog').classList.toggle('active');
+        var elem = document.querySelector('.spui .hoog');
+        if(!T) elem.classList.add('active');
+        else if(T === 9) elem.classList.remove('active');
       };
 
       motionDisplay.createLeafletUnderlay({
