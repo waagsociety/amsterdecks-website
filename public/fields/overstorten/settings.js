@@ -6,5 +6,5 @@ fieldSettings['overstorten'] = {
 	particleDensity: 0.15,
 	particleMaxAge: 1200,
 	timeStep: 18/7,
-  minFPS: 5
+  	minFPS: 2
 };

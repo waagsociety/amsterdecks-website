@@ -6,5 +6,5 @@ fieldSettings['gr-amsterdam'] = {
 	particleDensity: 0.2,
 	particleMaxAge: 500,
 	timeStep: 18/18,
-  minFPS: 5
+  	minFPS: 2
 };

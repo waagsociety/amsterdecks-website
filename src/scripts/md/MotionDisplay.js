@@ -150,8 +150,9 @@ function MotionDisplay(options){
 			dt = newTime - this.lastStep;
 			//fade = 5; //this.fade || 0.96;
 
+		// reduce particles if previous step took too long
 		if(dt > this.minTimeTaken){
-			this.particles = this.particles.slice( 0, Math.floor( this.particles.length * ( this.minTimeTaken / dt ) ) );
+			this.particles = this.particles.slice( 0, Math.floor( this.particles.length * ( this.minTimeTaken / dt / 2  ) ) );
 		}
 
 		this.lastStep = newTime;
