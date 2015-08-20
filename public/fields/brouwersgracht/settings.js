@@ -4,6 +4,7 @@ fieldSettings['brouwersgracht'] = {
 	trailLength: .6,
 	particleSpeed: 3,
 	particleDensity: 0.35,
+	particleSize: 2,
 	particleMaxAge: 500,
 	timeStep: 18/18,
   	minFPS: 2

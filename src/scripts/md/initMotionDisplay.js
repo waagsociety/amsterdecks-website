@@ -38,6 +38,7 @@ function loadField(name, element, cb){
 			contaminatorInfo: contaminatorSets[name],
 			particleColor: settings.particleColor,
 			particleDensity: settings.particleDensity,
+			lineWidth: settings.particleSize,
 			backgroundColor: settings.backgroundColor,
 			trailLength: settings.trailLength,
 			timeStep: settings.timeStep,

@@ -9,10 +9,15 @@ section#riool.page.left.bigger-padding
     p.
       Beide systemen zijn erg robuust, maar bij extreme regenval storten zij over. In het nieuwe gescheiden stelsel is dit niet heel erg, omdat in feite regenwater en stedelijke uitspoeling in het oppervlaktewater belandt. Bij het gemengde stelsel stort echter onbehandeld huishoudelijk afvalwater op het oppervlaktewater. Overstortriolen zijn te herkennen aan hun gele putdeksels. Gelukkig komen overstortcondities weinig voor, zo’n zes à tien keer per jaar. Helaas wel vaker in de zomermaanden. 
     ul.rioolNav
-      li.regenBtn Regenval
-      li.droogteBtn.active Droogte
+      li.droogteBtn.active(data-activate="droog") Droog
+      li.regenBtn(data-activate="regen") Extreme regenval
   .three-col-two.small-padding.left    
-    #overStortcontainer
+    #overstortcontainer.droog
+      #riooltitles
+        #riooltitle-gemengd
+          h3 Gemengd riool
+        #riooltitle-gescheiden
+          h3 Gescheiden riool
       .view.droogOverstort
         include ../images/overstort_normaal.svg
       .view.regenOverstort

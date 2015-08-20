@@ -209,11 +209,17 @@ function titleLinkClick() {
   $('.liqSub').removeClass('active');
 }
 
-function rioolMenuClick(){
+function rioolMenuClick(e){
+  var container = document.getElementById('overstortcontainer');
+  if(this.dataset.activate === 'regen'){
+    container.classList.remove('droog');
+    container.classList.add('regen');
+  } else {
+    container.classList.add('droog');
+    container.classList.remove('regen');
+  }
   $('.rioolNav li').removeClass('active');  
-  $(this).toggleClass('active');  
-  $('.regenOverstort').toggleClass('active');
-  $('.droogOverstort').toggleClass('active');
+  $(this).addClass('active');
 }
 
 function kwaliteitElementClick(e){

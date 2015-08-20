@@ -96,7 +96,7 @@
 		</g>
 	</g>
 </g>
-<g id="kust" class="clickable" data-highlight="#icon-kust">
+<g id="kust" class="clickable" data-highlight="#icon-kust,#kust-text,#icon-sediment,#icon-nutrienten">
 	<g>
 		<path fill="#004261" d="M581.7,198.4l0-0.1v-0.1l-0.1,0l-0.1,0c-0.4-0.3-0.8-0.5-1.6-1l-0.5-0.3c-0.9-0.5-2.1-1.2-3.3-1.9
 			l-1.6-0.9c-1.6-0.9-3-1.7-4.2-2.4l-0.2-0.1c-1.2-0.7-2.4-1.3-3.4-1.9c-1.2-0.7-2.2-1.3-3.1-1.9c-1-0.7-2.2-1.5-3.2-2.3
@@ -373,7 +373,7 @@
 		</g>
 	</g>
 </g>
-<g id="icon-kust" class="clickable" data-highlight="#kust,#kust-text">
+<g id="icon-kust" class="clickable" data-highlight="#kust,#kust-text,#icon-sediment,#icon-nutrienten">
 	
 		<text transform="matrix(0.9993 -3.854000e-02 3.854000e-02 0.9993 538.3943 535.7948)" opacity="0.5" fill="#231F20" font-family="'AvenirNext-Bold'" font-size="12">KUST</text>
 	<g>
@@ -386,7 +386,7 @@
 			C542.4,509.7,542.5,509.7,542.6,509.7z"/>
 	</g>
 </g>
-<g id="industrie" class="clickable" data-highlight="#icon-industrie,#icon-bacterien,#icon-chemisch,#icon-nutrienten">
+<g id="industrie" class="clickable" data-highlight="#icon-industrie,#icon-chemisch,#industrie-text">
 	<g>
 		<polygon fill="#004261" points="252.5,305.5 307.2,273.2 309.9,275.4 311.3,276.5 257,308.4 257,309.1 		"/>
 		<path fill="#231F20" d="M307.1,273.3l2.8,2.2l1.2,1l-25.5,15L257,308.4l-0.1,0v0.1v0.4l-2.7-2.1l-1.6-1.3
@@ -730,7 +730,7 @@
 		</g>
 	</g>
 </g>
-<g id="stedelijk" class="clickable" data-highlight="#icon-stedelijk,#icon-bacterien,#icon-nutrienten,#icon-drijfvuil, #icon-chemisch">
+<g id="stedelijk" class="clickable" data-highlight="#icon-stedelijk,#icon-bacterien,#icon-nutrienten,#icon-drijfvuil,#stedelijk-text">
 	<g>
 		<path fill="#004261" d="M328.6,260.6l62.4-36.8l0,5.7l-57.8,34l0,0.6L328.6,260.6z M396.1,220.8l-3.4,1.9l8.7-5.2l0-0.7l-12.2-9.7
 			l0-4.4l15.9,12.6l33-19.4l4.1,3.3l-29.8,17.6l-1.4-1.1l-5.1,2.9l0,2.1l-5.8,3.4L396.1,220.8z"/>
@@ -1273,7 +1273,7 @@
 		</g>
 	</g>
 </g>
-<g id="icon-stedelijk" class="clickable" data-highlight="#stedelijk,#icon-bacterien,#icon-nutrienten,#icon-drijfvuil, #icon-chemisch,#stedelijk-text">
+<g id="icon-stedelijk" class="clickable" data-highlight="#stedelijk,#icon-bacterien,#icon-nutrienten,#icon-drijfvuil,#stedelijk-text">
 	
 		<text transform="matrix(1 0 0 1 410.0569 535.7808)" opacity="0.5" fill="#231F20" font-family="'AvenirNext-Bold'" font-size="12">STEDELIJK</text>
 	<g opacity="0.5">
@@ -1295,7 +1295,7 @@
 </g>
 <g id="ICONS">
 </g>
-<g id="icon-sediment" class="clickable" data-highlight="#icon-landbouw,#landbouw,#icon-industrie,#industrie,#sediment-text">
+<g id="icon-sediment" class="clickable" data-highlight="#icon-achterland,#achterland,#icon-stedelijk,#stedelijk,#icon-kust,#kust,#sediment-text">
 	<text transform="matrix(1 0 0 1 516.0557 11.8855)" fill="#F15A22" font-family="'AvenirNext-Bold'" font-size="12">SEDIMENT</text>
 	<g>
 		<g>
@@ -1344,7 +1344,7 @@
 		<circle fill="#FFFFFF" cx="567.2" cy="58.2" r="1.6"/>
 	</g>
 </g>
-<g id="icon-nutrienten" class="clickable" data-highlight="#icon-landbouw,#landbouw,#icon-stedelijk,#stedelijk,#icon-industrie,#industrie,#nutrienten-text">
+<g id="icon-nutrienten" class="clickable" data-highlight="#icon-landbouw,#landbouw,#icon-kust,#kust,#nutrienten-text">
 	<text transform="matrix(1 0 0 1 416.7863 11.8855)" fill="#F15A22" font-family="'AvenirNext-Bold'" font-size="12">NUTRIENTEN</text>
 	<g>
 		<circle fill="none" stroke="#F15A22" stroke-width="2.8347" stroke-miterlimit="10" cx="457.9" cy="50.3" r="23.2"/>
@@ -1377,7 +1377,7 @@
 		<line fill="none" stroke="#F15A22" stroke-width="2.8347" stroke-miterlimit="10" x1="380.4" y1="32.1" x2="349.7" y2="66.8"/>
 	</g>
 </g>
-<g id="icon-chemisch" class="clickable" data-highlight="#icon-landbouw,#landbouw,#icon-stedelijk,#stedelijk,#icon-industrie,#industrie,#chemisch-text">
+<g id="icon-chemisch" class="clickable" data-highlight="#icon-industrie,#industrie,#chemisch-text">
 	<text transform="matrix(1 0 0 1 239.3669 11.8855)" fill="#F15A22" font-family="'AvenirNext-Bold'" font-size="12">CHEMISCH</text>
 	<g>
 		<circle fill="none" stroke="#F15A22" stroke-width="2.8347" stroke-miterlimit="10" cx="274.2" cy="50.3" r="23.2"/>
@@ -1421,7 +1421,7 @@
 			C194,60.2,193.7,59.9,193.4,59.6z"/>
 	</g>
 </g>
-<g id="icon-bacterien" class="clickable" data-highlight="#industrie,#icon-industrie,#icon-stedelijk,#stedelijk,#bacterien-text">
+<g id="icon-bacterien" class="clickable" data-highlight="#achterland,#icon-achterland,#stedelijk,#icon-stedelijk,#bacterien-text">
 	<text transform="matrix(1 0 0 1 53.914 11.8855)" fill="#F15A22" font-family="'AvenirNext-Bold'" font-size="12">BACTERIEN</text>
 	<g>
 		<circle fill="none" stroke="#F15A22" stroke-width="2.8347" stroke-miterlimit="10" cx="90.4" cy="50.3" r="23.2"/>
@@ -1447,7 +1447,7 @@
 		</g>
 	</g>
 </g>
-<g id="achterland" class="clickable" data-highlight="#icon-achterland">
+<g id="achterland" class="clickable" data-highlight="#icon-achterland,#icon-bacterien,#icon-sediment,#achterland-text">
 	<g opacity="0.5">
 		<polygon fill="#004261" points="97.3,404.1 97.3,397 101.9,400.7 101.9,407.7 		"/>
 		<path fill="#231F20" d="M97.4,397.2l4.4,3.5v6.9l-4.4-3.5V397.2 M97.2,396.9v7.3l4.7,3.7v-7.2L97.2,396.9L97.2,396.9z"/>
@@ -1759,13 +1759,13 @@
 	
 		<use xlink:href="#TREE"  width="12" height="24.2" x="-6.3" y="-9.5" transform="matrix(0.5369 0 0 -0.5369 196.7592 416.9858)" overflow="visible" opacity="0.8"/>
 </g>
-<g id="icon-achterland" class="clickable" data-highlight="#achterland,#achterland-text">
+<g id="icon-achterland" class="clickable" data-highlight="#achterland,#achterland-text,#icon-bacterien,#icon-sediment">
 	<text transform="matrix(1 0 0 1 57.4763 535.7805)" opacity="0.5" fill="#231F20" font-family="'AvenirNext-Bold'" font-size="12">ACHTERLAND</text>
 	<path opacity="0.5" fill="#231F20" d="M117.2,507.7v-3.8h3l-2.2-4.4h1.2l-3.1-6.1l-3.1,6.1h1.2l-1.6,3.3l-7.3-7.7l-3.1,2.8
 		l-2.6-3.7l-4.3-6.1l-4.4,9.4l-0.5,1l-0.6,1.2l-6.2,13.6h38.8L117.2,507.7z M115,503.9v1.4l-1.3-1.4H115z M95.6,491.4l2.8,3.9
 		c-0.8,0.7-1.4,1.3-1.9,1.7l-1.9-1l-1.5,0.6L95.6,491.4z"/>
 </g>
-<g id="landbouw" class="clickable" data-highlight="#icon-landbouw,#icon-chemisch,#icon-zuurstof,#icon-sediment,#icon-nutrienten">
+<g id="landbouw" class="clickable" data-highlight="#icon-landbouw,#icon-zuurstof,#icon-nutrienten,#landbouw-text">
 	<g>
 		<polygon fill="#004261" points="194.1,345.6 180.8,353.4 180.8,354 176.3,350.4 189.3,342.7 189.4,341.9 170.5,327 171,326.7 
 			190.4,342 202.5,334.9 202.5,334.2 183.7,319.2 184.2,318.9 203.5,334.3 215.6,327.2 215.7,326.4 196.8,311.5 197.3,311.2 
@@ -1887,7 +1887,7 @@
 	</pattern>
 	<polygon fill="url(#SVGID_8_)" points="216.5,324.7 227.4,318.2 208.5,303.3 197.5,309.7 	"/>
 </g>
-<g id="icon-landbouw" class="clickable" data-highlight="#landbouw,#icon-chemisch,#icon-zuurstof,#icon-sediment,#icon-nutrienten,#landbouw-text">
+<g id="icon-landbouw" class="clickable" data-highlight="#landbouw,#icon-zuurstof,#icon-nutrienten,#landbouw-text">
 	
 		<text transform="matrix(1 0 0 1 179.4533 535.7808)" opacity="0.5" fill="#231F20" font-family="'AvenirNext-Bold'" font-size="12">LANDBOUW</text>
 	<g opacity="0.5">
@@ -1943,7 +1943,7 @@
 		</g>
 	</g>
 </g>
-<g id="icon-industrie"  class="clickable" data-highlight="#industrie,#icon-bacterien,#icon-chemisch,#icon-nutrienten,#industrie-text">
+<g id="icon-industrie"  class="clickable" data-highlight="#industrie,#icon-chemisch,#industrie-text">
 	
 		<text transform="matrix(1 0 0 1 295.5857 535.7805)" opacity="0.5" fill="#231F20" font-family="'AvenirNext-Bold'" font-size="12">INDUSTRIE</text>
 	<g opacity="0.5">

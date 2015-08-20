@@ -4,6 +4,7 @@ fieldSettings['overstorten'] = {
 	trailLength: 1,
 	particleSpeed: 6,
 	particleDensity: 0.15,
+	particleSize: 2,
 	particleMaxAge: 1200,
 	timeStep: 18/7,
   	minFPS: 2

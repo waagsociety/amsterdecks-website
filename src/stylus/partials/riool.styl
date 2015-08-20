@@ -1,15 +1,20 @@
 #riool
   background canvas
-  .droogOverstort
-    opacity 1
-  .regenOverstort
-    opacity 0
-  .active
-    opacity 1
+  #overstortcontainer.droog
+    .droogOverstort
+      opacity 1
+    .regenOverstort
+      opacity 0
+  #overstortcontainer.regen
+    .droogOverstort
+      opacity 0
+    .regenOverstort
+      opacity 1
   
 .rioolNav
   margin-bottom medium-em
   li
+    user-select none
     cursor pointer
     padding small-em
     color call-to-action
@@ -23,3 +28,16 @@
   .active
     background-color call-to-action
     color canvas
+#riooltitles
+  position relative
+  #riooltitle-gemengd,#riooltitle-gescheiden
+    width 50%
+    float left
+    h3
+      font-family 'Open Sans', sans-serif, arial
+      margin-left 20%
+      margin-bottom 10%
+  #riooltitle-gemengd h3
+    margin-left 27%
+.view
+  top 30px
