@@ -156,7 +156,7 @@ function initMotionDisplays(){
   }
 
   assignFieldTrigger('#splashflow', [{ name: 'gr-amsterdam', parent: '#splashflow' }]);
-  assignFieldTrigger('#overstortenContainer', [{ name: 'overstorten', parent: '#overstortenContainer' }]);
+  assignFieldTrigger('#overstortenContainer', [{ name: 'overstorten', parent: '#overstortenContainer' }, {name: 'centercenter', parent: '#overstortenContainerZoom'}]);
   assignFieldTrigger('#stromingFlowContainer', [{ name: 'brouwersgracht', parent: '#stromingFlowContainer' }]);
 }
 
