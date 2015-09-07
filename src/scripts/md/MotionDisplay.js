@@ -360,7 +360,6 @@ function MotionDisplay(options){
 		leafletContainerContainerStyle.left = 0;
 		leafletContainerContainerStyle.overflow = 'hidden';
 		
-		leafletContainer.id = 'leafletcontainer';
 		leafletContainerStyle.width = width;
 		leafletContainerStyle.height = height
 
@@ -372,7 +371,7 @@ function MotionDisplay(options){
     		leafletTileAttribution = options.leafletTileAttribution || '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>';
 
 		var osm = L.tileLayer(leafletTileUrl, { attribution: leafletTileAttribution, zoomControl: false }),
-			map = L.map('leafletcontainer', {
+			map = L.map(leafletContainer, {
 				layers: [osm]
 			}).fitBounds([
 				[ this.bounds[0][1], this.bounds[0][0] ],
