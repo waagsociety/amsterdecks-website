@@ -124,6 +124,12 @@ function initMotionDisplays(){
         leafletTileUrl: 'http://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png',
         leafletTileAttribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
       });
+    },
+    centercenter: function(motionDisplay){
+      motionDisplay.createLeafletUnderlay({
+        leafletTileUrl: 'http://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png',
+        leafletTileAttribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
+      });
     }
   };
 
