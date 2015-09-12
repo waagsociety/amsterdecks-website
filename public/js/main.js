@@ -233,10 +233,13 @@ function kwaliteitElementClick(e){
     elem.classList.remove('active');
   });
   $('#qualityTextContainer div').removeClass('active');
+
+  var highlightSelectors = (e.currentTarget.dataset && e.currentTarget.dataset.highlight || $(e.currentTarget).attr('data-highlight')).split(',');
   
-  e.currentTarget.dataset.highlight.split(',').forEach(function(selector){
+  highlightSelectors.forEach(function(selector){
     document.querySelector(selector).classList.add('active');
   });
+
   e.currentTarget.classList.add('active');
 }
 
